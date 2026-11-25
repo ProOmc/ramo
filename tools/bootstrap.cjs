@@ -18,7 +18,7 @@ function unzip(file,dest){fs.rmSync(dest,{recursive:true,force:true});fs.mkdirSy
   download('https://github.com/sharkdp/fd/releases/download/v10.5.0/fd-v10.5.0-x86_64-pc-windows-msvc.zip',fd,'a227701b8551c35a9931d9f6da75503cf86d88e182d71fb849a70864c5d57cd7'),
  ]);
  if(!fs.existsSync(path.join(root,'vendor/electron/electron.exe')))unzip(electron,path.join(root,'vendor/electron'));
- const electronExe=path.join(root,'vendor/electron/electron.exe'),ramoExe=path.join(root,'vendor/electron/ramoresearchresponsiveuinativeeditor.exe');
+ const electronExe=path.join(root,'vendor/electron/electron.exe'),ramoExe=path.join(root,'vendor/electron/Ramo.exe');
  if(fs.existsSync(electronExe)){fs.copyFileSync(electronExe,ramoExe);fs.rmSync(electronExe);}
  if(!fs.existsSync(path.join(root,'vendor/node/node.exe'))){const temp=path.join(downloads,'node-extracted');unzip(node,temp);const extracted=path.join(temp,'node-v24.19.0-win-x64');fs.cpSync(extracted,path.join(root,'vendor/node'),{recursive:true});}
  if(!fs.existsSync(path.join(root,'vendor/node/rg.exe'))){const temp=path.join(downloads,'rg-extracted');unzip(rg,temp);const found=fs.readdirSync(temp,{recursive:true}).find(name=>String(name).endsWith('rg.exe'));if(!found)throw Error('ripgrep executable missing');fs.copyFileSync(path.join(temp,String(found)),path.join(root,'vendor/node/rg.exe'));}

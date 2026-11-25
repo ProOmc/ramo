@@ -24,6 +24,7 @@ const appSource=path.join(dev,'app'),appDest=path.join(dev,'release/Ramo/resourc
 fs.cpSync(appSource,appDest,{recursive:true,filter:(src,dst)=>fs.statSync(src).isDirectory()||!fs.existsSync(dst)||!same(src,dst)});
 // The staged application must mirror the built application exactly.
 prune(appSource,appDest);
+fs.rmSync(path.join(dev,'release/Ramo/ramoresearchresponsiveuinativeeditor.exe'),{force:true});
 // The Electron executable is the public entry point; no launcher script is needed.
 fs.rmSync(path.join(dev,'release/Ramo/Start Ramo.bat'),{force:true});
 fs.rmSync(path.join(dev,'release/Ramo/debug.log'),{force:true});

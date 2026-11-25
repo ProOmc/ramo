@@ -120,7 +120,7 @@
     await registry(true);sync();
   }
   async function editApiModel(profile,anchor,returnToPicker=true){
-    const panel=el('section',undefined,'oc-api-model-editor');head(panel,profile?'Edit API model':'Add an API model');panel.append(el('p','API keys are encrypted by your operating system. Ramo never adds them to chats or exports.','oc-dialog-help'));
+    const panel=el('section',undefined,'oc-api-model-editor');head(panel,profile?'Edit API model':'Add an API model');panel.append(el('p','API keys are encrypted by your operating system and excluded from chats and exports.','oc-dialog-help'));
     const field=(title,value,type='text')=>{const wrap=el('label',undefined,'oc-form-field'),caption=el('span',title),input=el('input');input.type=type;input.value=value||'';input.setAttribute('aria-label',title);wrap.append(caption,input);panel.append(wrap);return input;};
     const choice=(title,options,value)=>{const wrap=el('label',undefined,'oc-form-field'),caption=el('span',title),select=el('select');select.setAttribute('aria-label',title);for(const [label,id] of options){const option=el('option',label);option.value=id;select.append(option);}select.value=value;wrap.append(caption,select);panel.append(wrap);return select;};
     const provider=choice('API provider',[['Google Gemini','gemini'],['OpenAI-compatible service','openai-compatible']],profile?.provider||'gemini');
