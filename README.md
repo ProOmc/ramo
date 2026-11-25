@@ -55,7 +55,7 @@ The app is written to `release/Ramo`; run `Ramo.exe` directly. These checks are 
 
 - [First-run guide](docs/FIRST_RUN.md) and [Troubleshooting](docs/TROUBLESHOOTING.md)
 - [How the core presents messages, tools, status and thinking](docs/core-information-display.md)
-- [Security policy](SECURITY.md) and [Changelog](CHANGELOG.md)
+- [Changelog](CHANGELOG.md)
 - Chats, settings, and provider configuration are stored in your Windows application-data profile, not in the extracted app folder.
 - Ramo's agent kernel is derived in part from Pi 1.4.0 (MIT). Third-party notices and license files are included.
 
