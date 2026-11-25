@@ -1,0 +1,37 @@
+/* Ramo desktop sections: a continuation of the existing workspace, not a modal dashboard. */
+#oc-desktop-sections{position:absolute;top:0;bottom:0;right:0;left:var(--oc-desktop-rail,56px);z-index:2147483200;display:none;pointer-events:auto;background:var(--oc-bg,#1f2123);color:var(--oc-text,#f0f2f3);font:14px/1.55 "Segoe UI Variable","Segoe UI",system-ui,sans-serif;overflow:hidden}
+#oc-desktop-sections[data-view]:not([data-view=""]){display:flex;flex-direction:column}
+#oc-desktop-sections *{box-sizing:border-box}
+#oc-desktop-sections button{font:inherit;cursor:pointer}
+#oc-desktop-sections button:focus-visible{outline:2px solid var(--oc-focus,#a1b8b2);outline-offset:3px}
+#oc-desktop-sections .oc-section-scroll{overflow-y:auto;overscroll-behavior:contain;scrollbar-color:var(--oc-rule,#414749) transparent;min-height:0;flex:1}
+#oc-desktop-sections .oc-section-content{width:min(1010px,calc(100% - 56px));margin:0 auto;padding:44px 0 80px}
+#oc-desktop-sections .oc-section-titleline{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:32px}
+#oc-desktop-sections .oc-section-title{margin:0;font-size:25px;line-height:1.2;font-weight:620;letter-spacing:-.045em;color:var(--oc-text)}
+#oc-desktop-sections .oc-section-live{color:var(--oc-muted);font-size:12px;font-variant-numeric:tabular-nums;display:flex;gap:8px;align-items:center;white-space:nowrap}
+#oc-desktop-sections .oc-live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#85ceb1}
+#oc-desktop-sections[data-connected="false"] .oc-live-dot{background:#8b9194}
+#oc-desktop-sections .oc-metric{padding:19px 0 22px;border-bottom:1px solid var(--oc-rule,#3b4446)}
+#oc-desktop-sections .oc-metric-main{display:grid;grid-template-columns:minmax(190px,1fr) minmax(150px,1fr) 90px;gap:18px;align-items:center}
+#oc-desktop-sections .oc-metric-name{font-weight:610;font-size:15px;color:var(--oc-text)}
+#oc-desktop-sections .oc-metric-model{display:block;margin-top:3px;max-width:350px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--oc-muted);font-size:12px}
+#oc-desktop-sections .oc-metric-memory{display:block;margin-top:3px;color:var(--oc-muted);font-size:11px}
+#oc-desktop-sections .oc-meterbar{height:5px;background:var(--oc-surface,#303437);overflow:hidden;border-radius:5px;margin:10px 0 0}
+#oc-desktop-sections .oc-meterfill{height:100%;display:block;width:0%;background:#9fc7bf;border-radius:5px;transition:width .32s ease}
+#oc-desktop-sections .oc-graph{width:100%;height:57px;display:block;overflow:visible}
+#oc-desktop-sections .oc-graph .oc-graph-line{stroke:#91b8bb;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+#oc-desktop-sections .oc-metric-value{text-align:right;font-size:28px;letter-spacing:-.05em;font-weight:560;font-variant-numeric:tabular-nums;color:var(--oc-text)}
+#oc-desktop-sections .oc-metric-value span{font-size:15px;color:var(--oc-muted);font-weight:440;margin-left:2px}
+#oc-desktop-sections .oc-note{font-size:11px;color:var(--oc-muted);margin-top:22px;line-height:1.6}
+#oc-desktop-sections .oc-muted{color:var(--oc-muted)}
+#oc-desktop-sections .oc-model-summary{border-top:1px solid var(--oc-rule)}
+#oc-desktop-sections .oc-model-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid var(--oc-rule)}
+#oc-desktop-sections .oc-model-name{font-size:15px;font-weight:590;line-height:1.4}
+#oc-desktop-sections .oc-model-detail{font-size:12px;color:var(--oc-muted);margin-top:5px}
+#oc-desktop-sections .oc-model-state{font-size:12px;color:var(--oc-muted);white-space:nowrap}
+#oc-desktop-sections .oc-model-state.online{color:#8fceb4}
+#oc-desktop-sections .oc-section-action{background:var(--oc-surface);color:var(--oc-text);border:1px solid var(--oc-rule);border-radius:8px;padding:8px 14px}
+#oc-desktop-sections .oc-section-action:hover{background:var(--oc-hover)}
+#oc-desktop-sections .oc-error-note{color:#edaaaa}
+@media(max-width:730px){#oc-desktop-sections .oc-section-content{width:calc(100% - 36px);padding:24px 0 60px}#oc-desktop-sections .oc-metric-main{grid-template-columns:minmax(125px,1fr) 72px;gap:8px}#oc-desktop-sections .oc-graph{grid-row:2;grid-column:1/-1}#oc-desktop-sections .oc-metric-value{grid-row:1;grid-column:2;font-size:25px}#oc-desktop-sections .oc-section-titleline{margin-bottom:18px}}
+@media(prefers-reduced-motion:reduce){#oc-desktop-sections .oc-meterfill{transition:none}}

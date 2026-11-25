@@ -1,0 +1,72 @@
+[
+  {
+    "id": "L01",
+    "text": "draw a small house",
+    "expect": "imaginary",
+    "note": "No grounding: the request is not about the screen. The pet draws in the middle of the canvas."
+  },
+  {
+    "id": "L02",
+    "text": "circle the control panel of the app on my screen",
+    "expect": "present",
+    "note": "A whole window, not a widget."
+  },
+  {
+    "id": "L03",
+    "text": "circle the Pet button in the left sidebar",
+    "selector": ["#oc-pet-item"],
+    "expect": "present"
+  },
+  {
+    "id": "L04",
+    "text": "circle the New chat button",
+    "selector": [".oc-new-chat"],
+    "expect": "present"
+  },
+  {
+    "id": "L05",
+    "text": "circle the clock on my taskbar",
+    "expect": "present",
+    "note": "The same target as frozen case G04."
+  },
+  {
+    "id": "L06",
+    "text": "circle the search box on my taskbar",
+    "expect": "present",
+    "note": "The same target as frozen case G03."
+  },
+  {
+    "id": "L07",
+    "text": "circle the back arrow in the browser toolbar",
+    "expect": "present"
+  },
+  {
+    "id": "L08",
+    "text": "circle the address bar in the browser",
+    "expect": "present"
+  },
+  {
+    "id": "L09",
+    "text": "circle the Save button",
+    "expect": "present",
+    "note": "The same target as frozen case G09."
+  },
+  {
+    "id": "L10",
+    "text": "circle the Cancel button",
+    "expect": "present",
+    "note": "The distractor next to Save, frozen case G10."
+  },
+  {
+    "id": "L11",
+    "text": "circle the cat's head",
+    "expect": "present",
+    "note": "The same target as frozen case G07."
+  },
+  {
+    "id": "L12",
+    "text": "circle the elephant on my screen",
+    "expect": "absent",
+    "note": "The model is never offered a refusal, so this produces a drawing somewhere. It is a hallucination probe, not a pass."
+  }
+]

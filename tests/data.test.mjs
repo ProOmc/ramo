@@ -1,0 +1,14 @@
+import test from'node:test';import assert from'node:assert/strict';import {createRequire}from'node:module';
+import {StateStore,MemoryService,DocumentService}from'../build/domain.js';
+const require=createRequire(import.meta.url);globalThis.RamoHarnessCore=require('../src/compat/ramo-harness-core.js');
+function storage(){const values=new Map();return {getItem:k=>values.get(k)||null,setItem:(k,v)=>values.set(k,v),removeItem:k=>values.delete(k)};}
+test('original Ramo state schema retains chats, memory, documents and Pi metadata across reload',()=>{
+ const local=storage(),store=new StateStore(local);store.data.facts.push({id:'fact',content:'Test notebook is Reef Blue',status:'active',owner:'user'});store.data.documents.push({id:'doc',name:'note.txt',content:'Durable project note',updated:new Date().toISOString()});
+ store.newChat();const c=store.activeChat();store.appendChatTurn({raw:'Original user request',attachments:[{name:'note.txt',content:'Attached text'}]},'Original answer');c.pi={id:'pi-session',fingerprint:'fingerprint',evidence:[{id:'S1',url:'https://example.org/old',title:'Old'}]};assert.equal(store.save(),true);
+ const restored=new StateStore(local);assert.equal(restored.activeChat().messages[0].assistant,'Original answer');assert.equal(restored.activeChat().pi.id,'pi-session');assert.equal(restored.data.facts[0].content,'Test notebook is Reef Blue');assert.equal(restored.data.documents[0].name,'note.txt');
+});
+test('tasks, reusable instructions, version branches and original JSON transfers remain usable',async()=>{
+ const store=new StateStore(storage()),harness=new RamoHarnessCore.Harness(store);store.newChat();store.appendChatTurn({raw:'Original'},'Answer');store.save();harness.tasks([{id:'one',content:'Verify output',status:'pending'}]);harness.saveSkill({name:'review',description:'Review changes',content:'Inspect the actual diff.'});harness.fork('Before revision');store.activeChat().messages[0].assistant='Revised';store.save();const old=harness.branches().find(b=>!b.current);harness.selectBranch(old.id);assert.equal(store.activeChat().messages[0].assistant,'Answer');
+ const raw=harness.exportChat();await harness.importChat(raw);assert.equal(store.activeChat().messages[0].assistant,'Answer');assert.equal(harness.tasks().todos[0].content,'Verify output');assert.equal(harness.skill('review').content,'Inspect the actual diff.');
+});
+test('failed saves report failure and keep existing persisted state',()=>{const local=storage(),store=new StateStore(local);store.appendChatTurn({raw:'Saved'},'Retained');assert.equal(store.save(),true);local.setItem=()=>{throw Error('quota full');};store.appendChatTurn({raw:'Not persisted'},'Draft');assert.equal(store.save(),false);const restored=new StateStore(local);assert.equal(restored.activeChat().messages.length,1);assert.equal(restored.activeChat().messages[0].assistant,'Retained');});

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ramo Pet</title>
+<link rel="stylesheet" href="./pet.css">
+</head>
+<body>
+<!-- Ringo-style segmented ring companion:
+     five glowing arcs + a spherical gaze face, all driven by pet.js. -->
+<div id="pet" role="img" data-state="idle" aria-label="Ramo deskpet, a ring-shaped voice companion">
+  <div id="petBody">
+    <svg id="petSvg" viewBox="0 0 240 240">
+      <defs>
+        <filter id="fGlow"   x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="7"/></filter>
+        <filter id="fShadow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.4"/></filter>
+        <g id="segs" fill="none" stroke-width="15" stroke-linecap="round">
+          <path id="s0"/><path id="s1"/><path id="s2"/><path id="s3"/><path id="s4"/>
+        </g>
+      </defs>
+      <!-- ring: soft shadow, colour glow, crisp segments -->
+      <use id="uShadow" href="#segs" stroke="#000" filter="url(#fShadow)" transform="translate(0 3.5)" style="opacity:var(--shadowO,.22)"/>
+      <use id="uGlow"   href="#segs" stroke="#00b3f0" filter="url(#fGlow)" style="opacity:var(--glowO,.5)"/>
+      <use id="uMain"   href="#segs" stroke="#00b3f0"/>
+      <!-- face: eyes only. A thin soft white halo keeps the black eyes readable on dark backgrounds -->
+      <g id="face">
+        <g stroke="#fff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path id="hL"/><path id="hR"/>
+        </g>
+        <g stroke="#0a0b10" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path id="eL"/><path id="eR"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+</div>
+<div id="petCaption" aria-live="polite"></div>
+<script src="./pet.js"></script>
+</body>
+</html>

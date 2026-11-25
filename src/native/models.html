@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src data:">
+<title>Ramo — Local Models</title><link rel="stylesheet" href="models.css"></head>
+<body><div class="wrapper">
+<header><div><small>RAMO DESKTOP</small><h1>Local Model Manager</h1><p>Start configured local servers, wake sleeping models, and inspect their status. PowerShell profiles run the local loader you select; choose only scripts you trust.</p></div><button id="refresh" class="secondary">Refresh</button></header>
+<div id="message" class="message" aria-live="polite"></div><main id="models" aria-live="polite"><p>Loading model profiles…</p></main>
+<section class="new"><div><strong>Additional GGUF model</strong><p>Add another local llama-server and GGUF combination. Select both paths using Windows' file picker.</p></div><div class="addrow"><input id="new-name" placeholder="Model name" maxlength="80" aria-label="Custom model name"><select id="new-kind" aria-label="Profile type"><option value="custom">GGUF + llama-server</option><option value="script">PowerShell loader</option></select><input id="new-port" type="number" min="1025" max="65535" value="8082" aria-label="Custom model port"><button id="add">Add profile</button></div></section>
+<footer>Existing Ollama or Bonsai processes are used without taking ownership. Only processes launched from this manager can be stopped here. Qwen3.6 and custom models require your local GGUF path. No cloud inference is used by this manager.</footer>
+</div><script src="models-ui.js"></script></body></html>

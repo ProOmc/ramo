@@ -1,0 +1,27 @@
+{
+  "name": "ramo",
+  "version": "3.0.0",
+  "private": false,
+  "description": "Ramo local-first Windows desktop assistant",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "check": "tsc --noEmit",
+    "test": "node --test tests/*.test.mjs tests/inherited/*.test.cjs",
+    "package": "npm run check && npm run build && node tools/stage.cjs && node tools/verify.cjs",
+    "bootstrap": "node tools/bootstrap.cjs"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.19",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "esbuild": "0.28.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "typescript": "5.9.3",
+    "vite": "8.3.8"
+  },
+  "dependencies": {
+    "highlight.js": "^11.11.1"
+  }
+}

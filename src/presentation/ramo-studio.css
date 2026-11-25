@@ -1,0 +1,168 @@
+/* Ramo Studio: desktop layout and shared component vocabulary. */
+html.oc-studio { --oc-bg:#1c1e20;--oc-nav:#17191b;--oc-paper:#25282b;--oc-surface:#2e3236;--oc-field:#202326;--oc-hover:#34393d;--oc-rule:#ffffff12;--oc-text:#edf0ee;--oc-soft:#d2d8d4;--oc-muted:#929d97;--oc-accent:#b6d6c5;--oc-focus:#b6d6c5; color-scheme:dark; }
+html.oc-studio[data-ramo-theme="paper"] { --oc-bg:#f7f8f6;--oc-nav:#eff1ed;--oc-paper:#fff;--oc-surface:#e9ede8;--oc-field:#f4f6f2;--oc-hover:#dfe5df;--oc-rule:#172b1920;--oc-text:#202b25;--oc-soft:#38483e;--oc-muted:#65746a;--oc-accent:#315f48;--oc-focus:#315f48;color-scheme:light; }
+.oc-studio body { background:var(--oc-bg); }
+.oc-studio button,.oc-studio input,.oc-studio textarea,.oc-studio select { font-family:inherit; }
+.oc-studio [hidden] {display:none!important}
+.oc-studio button {cursor:pointer}
+.oc-studio button:disabled {opacity:.45;cursor:not-allowed}
+.oc-studio :focus-visible {outline:2px solid var(--oc-focus)!important;outline-offset:3px}
+.oc-studio #ramo-stage-overlay-v180 {font:14px/1.5 'Segoe UI',system-ui,sans-serif;color:var(--oc-text);background:var(--oc-bg)}
+.oc-studio .ramo-window-backdrop {display:none!important}
+.oc-studio #ramo-core-layer {z-index:1;pointer-events:auto}
+.oc-studio #ramo-window-art-v210 {z-index:2147483100!important;pointer-events:none!important}
+.oc-studio #ramo-core-layer .oc-core-caption {display:block!important;top:calc(100% - 10px);font-size:10px;letter-spacing:.06em;font-weight:500;color:var(--oc-muted)}
+.oc-studio #ramo-core-layer .oc-core-note {display:none!important}
+.oc-studio #ramo-nav-shell-v190 {position:absolute;inset:0;pointer-events:none;z-index:2147483500}
+.oc-studio #oc-studio-sidebar {position:absolute;inset:0 auto 0 0;width:216px;background:var(--oc-nav);border-right:1px solid var(--oc-rule);display:flex;flex-direction:column;padding:18px 12px 12px;box-sizing:border-box;pointer-events:auto;z-index:2147483300;gap:2px}
+.oc-studio .oc-brand {display:flex;align-items:center;justify-content:flex-start;gap:10px;padding:2px 10px 16px;font-size:19px;letter-spacing:-.7px;font-weight:650}
+.oc-studio .oc-brand small {font-size:10px;font-weight:500;letter-spacing:1.5px;color:var(--oc-muted)}
+.oc-studio .oc-nav-item,.oc-studio .oc-new-chat {display:flex;align-items:center;gap:11px;width:100%;padding:8px 10px;border:0;border-radius:8px;background:transparent;color:var(--oc-soft);font-size:13.5px;text-align:left;min-height:36px}
+.oc-studio .oc-nav-item svg,.oc-studio .oc-new-chat svg {width:17px;height:17px;flex:none}
+.oc-studio .oc-kbd {margin-left:auto;flex:none;font:500 10.5px/1 'Segoe UI',system-ui,sans-serif;color:var(--oc-muted);background:var(--oc-field);border:1px solid var(--oc-rule);border-radius:5px;padding:3px 5px;letter-spacing:.4px}
+.oc-studio .oc-nav-item:hover,.oc-studio .oc-nav-item.active {background:var(--oc-surface);color:var(--oc-text)}
+.oc-studio .oc-new-chat {background:var(--oc-surface);color:var(--oc-text);font-weight:600;margin-bottom:8px}
+.oc-studio .oc-nav-label {font-size:10px;letter-spacing:1.2px;font-weight:650;color:var(--oc-muted);padding:12px 10px 6px;text-transform:uppercase}
+.oc-studio .oc-sidebar-history {flex:1;min-height:70px;overflow:auto;margin:2px -2px 12px;scrollbar-width:thin}
+.oc-studio .ramo-drawer-chat-entry {display:block;width:100%;padding:7px 10px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border:0;border-radius:7px;background:transparent;color:var(--oc-muted);font-size:12.5px;margin:1px 0}
+.oc-studio .ramo-drawer-chat-entry:hover,.oc-studio .ramo-drawer-chat-entry.active {background:var(--oc-surface);color:var(--oc-text)}
+.oc-studio .oc-sidebar-searchform {position:relative;display:flex;align-items:center;margin:2px 0 8px}
+.oc-studio .oc-sidebar-searchform .oc-kbd {position:absolute;right:8px;pointer-events:none}
+.oc-studio .oc-sidebar-search-icon {position:absolute;left:10px;z-index:1;color:var(--oc-muted);display:inline-flex}
+.oc-studio .oc-sidebar-search {box-sizing:border-box;width:100%;border:1px solid var(--oc-rule);background:var(--oc-field);color:var(--oc-text);padding:8px 34px 8px 32px;border-radius:8px;font:12.5px inherit;outline:none}
+.oc-studio .oc-sidebar-search:focus {border-color:var(--oc-accent)}
+.oc-studio .oc-nav-spacer {flex:1 1 auto}
+.oc-studio .oc-nav-footer {border-top:1px solid var(--oc-rule)}
+.oc-studio .oc-nav-footer:first-of-type {padding-top:10px}
+.oc-studio #oc-mobile-nav {display:none;position:fixed;top:14px;left:14px;z-index:2147483400;pointer-events:auto}
+.oc-studio #ramo-workspace-pane-v180 {background:transparent!important;box-shadow:none!important;border:0!important;border-radius:0!important}
+.oc-studio #ramo-workspace-pane-v180 .ramo-w-head {min-height:var(--oc-heading-height,66px)!important;padding:0 4px!important;gap:12px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;background:transparent!important;flex:none!important;border-bottom:1px solid var(--oc-rule)!important;overflow:visible}
+.oc-studio #ramo-workspace-pane-v180 .ramo-w-title {display:none!important}
+.oc-studio #ramo-workspace-pane-v180 .ramo-w-actions {display:none!important}
+.oc-studio .oc-studio-heading {min-width:0;display:flex;align-items:center;gap:10px}
+.oc-studio .oc-studio-heading-text {display:flex;flex-direction:column;min-width:0}
+.oc-studio .oc-studio-chat-title {font-size:12px;color:var(--oc-muted);max-width:340px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.oc-studio .oc-studio-header-actions {display:flex;align-items:center;gap:6px}
+.oc-studio .oc-shell-button {display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:8px 14px;min-height:34px;border:1px solid var(--oc-rule);border-radius:9px;background:var(--oc-field);color:var(--oc-text);font-size:13px;line-height:1.3;white-space:nowrap;box-shadow:0 1px 2px rgba(0,0,0,.22)}
+.oc-studio .oc-shell-button:hover {background:var(--oc-hover);border-color:var(--oc-accent)}
+.oc-studio .oc-shell-button svg {width:18px;height:18px;flex:none}
+.oc-studio .oc-shell-button.primary {background:var(--oc-accent);color:var(--oc-bg);font-weight:600}
+.oc-studio .oc-model-menu {padding-left:0;font-size:16px;font-weight:600;color:var(--oc-text)}
+.oc-studio .oc-model-menu svg {width:14px}
+.oc-studio .oc-model-menu svg {order:1}
+.oc-studio #oc-studio-sidebar {overflow-x:hidden;overflow-y:auto;scrollbar-width:thin}
+.oc-studio #oc-studio-sidebar>* {flex-shrink:0}
+.oc-studio #ramo-command-input-v180 {resize:none!important;overflow-x:hidden!important;box-shadow:none!important;border:0!important;outline-offset:0!important}
+.oc-studio #ramo-stage-overlay-v180,.oc-studio .oc-overlay-panel {font-family:'Segoe UI',system-ui,sans-serif}
+.oc-studio #ramo-workspace-pane-v180 .ramo-chat-scroll {padding:28px 4px 28px!important;scrollbar-width:thin;scrollbar-color:var(--oc-surface) transparent}
+.oc-studio #ramo-workspace-pane-v180 .ramo-reading {width:100%!important;max-width:none!important;margin:0!important;color:var(--oc-soft)!important;font:400 15px/1.8 'Segoe UI',system-ui,sans-serif!important;overflow-wrap:anywhere}
+.oc-studio #ramo-workspace-pane-v180 .ramo-w-chat {border:0!important;box-shadow:none!important;padding:0!important;margin:0 0 28px!important;background:transparent!important;border-radius:0!important}
+.oc-studio #ramo-workspace-pane-v180 .ramo-w-chat.user {padding:16px 20px!important;margin-left:12%!important;border-radius:14px!important;background:var(--oc-paper)!important}
+.oc-studio #ramo-workspace-pane-v180 .oc-speaker {font:600 10px/1.5 'Segoe UI',sans-serif;letter-spacing:1.2px;color:var(--oc-muted);opacity:1;margin-bottom:9px}
+.oc-studio #ramo-workspace-pane-v180 .ramo-reading :is(h1,h2,h3,h4,strong) {color:var(--oc-text)!important}
+.oc-studio #ramo-workspace-pane-v180 .ramo-reading a {color:var(--oc-accent)!important;text-underline-offset:3px}
+.oc-studio #ramo-workspace-pane-v180 .ramo-reading pre {overflow:auto;max-width:100%;background:var(--oc-nav);border:1px solid var(--oc-rule);padding:14px;border-radius:10px}
+.oc-studio #ramo-workspace-pane-v180 .ramo-reading code {color:var(--oc-soft);background:var(--oc-surface)}
+.oc-studio #ramo-workspace-pane-v180 .oc-message-actions {display:flex;gap:4px;margin-top:10px;flex-wrap:wrap}
+.oc-studio #ramo-workspace-pane-v180 .oc-message-actions button {color:var(--oc-muted)!important;font-size:11px!important;padding:5px 8px!important;min-height:28px}
+.oc-studio #ramo-workspace-pane-v180 .oc-message-actions button:hover {background:var(--oc-surface);color:var(--oc-text)!important}
+.oc-studio #ramo-workspace-pane-v180 .oc-inline-activity {margin:0 0 18px!important;border:0!important;padding:0!important}
+.oc-studio #ramo-workspace-pane-v180 .oc-response-stats {font-size:10px!important;opacity:.65;border:0!important}
+.oc-studio #ramo-composer-v180 {border:1px solid var(--oc-rule)!important;background:var(--oc-paper)!important;border-radius:18px!important;padding:10px!important;gap:8px!important;box-shadow:0 8px 30px #0001!important;min-height:64px!important;box-sizing:border-box}
+.oc-studio #ramo-composer-v180 #ramo-command-input-v180 {font:14px/1.6 'Segoe UI',sans-serif!important;min-width:20px!important;padding:2px 4px!important;color:var(--oc-text)!important;background:transparent!important}
+.oc-studio #ramo-composer-v180 #ramo-composer-mic,.oc-studio #ramo-composer-v180 #ramo-composer-attach,.oc-studio #ramo-composer-v180 #ramo-composer-send {width:36px!important;height:36px!important;min-width:36px!important;border-radius:10px!important;border:0!important;flex:none;color:var(--oc-soft)!important}
+.oc-studio #ramo-composer-v180 #ramo-composer-send {background:var(--oc-accent)!important;color:var(--oc-bg)!important;font:22px/1 'Segoe UI',sans-serif!important}
+.oc-studio #ramo-composer-v180 .oc-thinking-quick {padding:7px 10px!important;border-radius:8px!important;border:1px solid var(--oc-rule)!important;font-size:12px!important;min-height:34px!important;color:var(--oc-muted)!important;background:transparent!important}
+.oc-studio #ramo-composer-v180 .oc-thinking-quick[aria-pressed="true"] {color:var(--oc-accent)!important;background:var(--oc-surface)!important}
+.oc-studio #ramo-composer-v180 .oc-more-quick {display:none!important}
+.oc-studio .oc-composer-tools {order:-1}
+.oc-studio .oc-composer-note {position:absolute;bottom:-26px;left:0;right:0;text-align:center;font-size:11px;color:var(--oc-muted);pointer-events:none}
+.oc-studio .oc-attached-text,.oc-studio .oc-queued {position:absolute;bottom:calc(100% + 8px);left:0;max-width:75%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:var(--oc-surface);color:var(--oc-text);border:1px solid var(--oc-rule);border-radius:8px;padding:6px 10px;font-size:12px}
+.oc-studio .oc-queued {left:auto;right:0;max-width:42%}
+.oc-studio .oc-welcome {position:absolute;text-align:center;left:0;width:100%;top:0;color:var(--oc-muted);pointer-events:none}
+.oc-studio .oc-welcome h1 {font-size:26px;font-weight:500;letter-spacing:-.8px;color:var(--oc-text);margin:0 0 8px}
+.oc-studio .oc-welcome p {font-size:14px;margin:0}
+.oc-studio .oc-overlay-layer {position:fixed;inset:0;z-index:2147483640;background:transparent;font:14px/1.5 'Segoe UI',system-ui,sans-serif;color:var(--oc-text)}
+.oc-studio .oc-overlay-layer.is-modal {background:#0007;backdrop-filter:blur(3px)}
+.oc-studio .oc-overlay-panel {position:fixed;box-sizing:border-box;overflow:auto;border:1px solid var(--oc-rule);border-radius:16px;background:var(--oc-paper);box-shadow:0 18px 70px #0006;padding:18px;scrollbar-width:thin;color:var(--oc-text)}
+.oc-studio .oc-dialog-head {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+.oc-studio .oc-dialog-head h2 {font-size:17px;margin:0;font-weight:600;letter-spacing:-.3px}
+.oc-studio .oc-dialog-help {font-size:12px;line-height:1.6;color:var(--oc-muted);margin:8px 0 18px}
+.oc-studio .oc-model-option {display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;width:100%;border:1px solid transparent;border-radius:10px;padding:12px;color:var(--oc-text);background:transparent}
+.oc-studio .oc-model-option:hover {background:var(--oc-surface)}
+.oc-studio .oc-model-option[aria-pressed="true"] {background:var(--oc-surface);border-color:var(--oc-accent)}
+.oc-studio .oc-model-option b {display:block;font-size:14px}
+.oc-studio .oc-model-option small {display:block;color:var(--oc-muted);font-size:12px;margin-top:3px;overflow-wrap:anywhere}
+.oc-studio .oc-model-status {font-size:10px;color:var(--oc-muted);white-space:nowrap}
+.oc-studio .oc-model-list {display:grid;gap:6px}
+.oc-studio .oc-model-section {padding:12px 10px 4px;color:var(--oc-muted);font-size:11px;font-weight:700;letter-spacing:.08em}
+.oc-studio .oc-model-actions {display:flex;justify-content:flex-end;gap:4px;margin:-4px 4px 8px}
+.oc-studio .oc-model-actions .oc-shell-button {min-height:30px;padding:5px 8px;font-size:12px}
+.oc-studio .oc-api-model-editor .oc-form-field[hidden] {display:none}
+.oc-studio .oc-menu-row {display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:transparent;color:var(--oc-soft);padding:10px;border-radius:8px;font-size:13px;min-height:40px}
+.oc-studio .oc-menu-row:hover {background:var(--oc-surface);color:var(--oc-text)}
+.oc-studio .oc-menu-row svg {width:18px;height:18px;flex:none}
+.oc-studio .oc-menu-rule {border:0;border-top:1px solid var(--oc-rule);margin:10px 0}
+.oc-studio .oc-overlay-panel :is(input:not([type="checkbox"]),textarea,select) {box-sizing:border-box;width:100%;border:1px solid var(--oc-rule);background:var(--oc-field);color:var(--oc-text);border-radius:8px;padding:10px 12px;font:13px/1.5 inherit}
+.oc-studio .oc-overlay-panel textarea {resize:vertical;min-height:95px}
+.oc-studio .oc-form-field {display:block;margin:16px 0}
+.oc-studio .oc-form-field>span {display:block;margin-bottom:7px;font-size:13px}
+.oc-studio .oc-switch-row {display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid var(--oc-rule)}
+.oc-studio .oc-switch-row small {display:block;color:var(--oc-muted);font-size:12px;margin-top:3px}
+.oc-studio .oc-switch-row input {accent-color:var(--oc-accent);width:17px;height:17px;flex:none}
+.oc-studio .oc-advanced {margin:20px 0;border-top:1px solid var(--oc-rule);padding-top:16px}
+.oc-studio .oc-advanced>summary {cursor:pointer;color:var(--oc-muted);font-size:13px}
+.oc-studio .oc-form-grid {display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.oc-studio .oc-dialog-actions {display:flex;justify-content:flex-end;gap:8px;margin-top:22px}
+.oc-studio .oc-harness-notice {color:var(--oc-accent);font-size:12px}
+.oc-studio .oc-harness-row {display:flex;align-items:center;gap:8px;margin:10px 0;flex-wrap:wrap}
+.oc-studio .oc-harness-row>span,.oc-studio .oc-harness-chat-title {flex:1;min-width:100px}
+.oc-studio .oc-harness-chat-title {appearance:none;text-align:left;border:0;border-radius:7px;background:transparent;color:var(--oc-text);padding:10px 12px;font:inherit;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.oc-studio .oc-harness-chat-title:hover {background:var(--oc-hover)}
+.oc-studio .oc-history-empty {padding:6px 12px;color:var(--oc-muted);font-size:12px;line-height:1.6}
+.oc-studio .oc-harness-row select {width:auto;max-width:180px}
+.oc-studio .oc-legacy-dialog>details>summary {display:none}
+.oc-studio .oc-overlay-panel>details>p {color:var(--oc-muted);font-size:12px}
+.oc-studio .oc-overlay-panel>details>input,.oc-studio .oc-overlay-panel>details>textarea {margin:8px 0}
+.oc-studio #oc-mobile-backdrop {display:none}
+.oc-studio #oc-studio-sidebar .oc-sidebar-close {display:none}
+.oc-studio #oc-desktop-sections {left:216px!important;background:var(--oc-bg)!important;width:calc(100% - 216px)!important}
+.oc-studio #ramo-workspace-pane-v180.page-mode .tam-workspace .panel {padding:24px 4px!important}
+.oc-studio #ramo-workspace-pane-v180.page-mode {background:var(--oc-bg)!important}
+@media(max-width:900px){
+ .oc-studio #oc-mobile-nav {display:inline-flex;background:var(--oc-nav)}
+ .oc-studio #oc-studio-sidebar {transform:translateX(-100%);transition:transform .15s}
+ .oc-studio.sidebar-open #oc-studio-sidebar {transform:none}
+ .oc-studio.sidebar-open #oc-mobile-backdrop {display:block;position:fixed;inset:0;background:#0007;z-index:2147483200;pointer-events:auto}
+ .oc-studio #oc-studio-sidebar .oc-sidebar-close {display:inline-flex}
+ .oc-studio #oc-desktop-sections {left:0!important;width:100%!important}
+ .oc-studio .oc-studio-chat-title {max-width:220px}
+}
+@media(max-width:650px){
+ .oc-studio .oc-studio-chat-title {max-width:180px}
+ .oc-studio .oc-settings-label {display:none}
+ .oc-studio #ramo-workspace-pane-v180 .ramo-reading {font-size:14px!important}
+ .oc-studio #ramo-composer-v180 {gap:2px!important;padding:8px!important}
+ .oc-studio #ramo-composer-v180 .oc-thinking-quick {padding:6px!important;font-size:11px!important}
+ .oc-studio .oc-form-grid {grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.oc-studio *{scroll-behavior:auto!important;transition:none!important}}
+/* API keys (Settings ? API keys). */
+.oc-studio .oc-keys-panel {display:flex;flex-direction:column;gap:14px}
+.oc-studio .oc-key-notice {margin:0;font-size:12px;color:var(--oc-muted);min-height:16px}
+.oc-studio .oc-key-notice.ok {color:var(--oc-accent)}
+.oc-studio .oc-key-notice.error {color:#e89086}
+.oc-studio .oc-keys-note,.oc-studio .oc-keys-tail {margin:0;font-size:12px;color:var(--oc-muted);line-height:1.55}
+.oc-studio .oc-keys-list {display:flex;flex-direction:column;gap:10px}
+.oc-studio .oc-key-row {border:1px solid var(--oc-rule);border-radius:12px;padding:12px 13px;background:var(--oc-paper,#282b2d)}
+.oc-studio .oc-key-name {font-size:13px;font-weight:650}
+.oc-studio .oc-key-hint {font-size:11.5px;color:var(--oc-muted);margin:2px 0 8px}
+.oc-studio .oc-key-status {display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--oc-muted);margin-bottom:8px}
+.oc-studio .oc-key-status.set {color:var(--oc-accent)}
+.oc-studio .oc-key-field {display:flex;gap:8px}
+.oc-studio .oc-key-input {flex:1;min-width:0;background:var(--oc-field,#313538);border:1px solid var(--oc-rule);border-radius:8px;padding:9px 11px;color:var(--oc-text,#eef0ef);font:inherit;font-size:13px;letter-spacing:.6px}
+.oc-studio .oc-key-input::placeholder {color:var(--oc-muted)}
+.oc-studio .oc-key-toggle {flex:none;border:1px solid var(--oc-rule);background:var(--oc-field,#313538);color:var(--oc-soft,#d1d7d9);border-radius:8px;padding:0 11px;cursor:pointer;font:inherit;font-size:11px}
+.oc-studio .oc-key-toggle:hover {color:var(--oc-text,#eef0ef)}
+.oc-studio .oc-key-actions {display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
+

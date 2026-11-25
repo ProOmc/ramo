@@ -1,0 +1,17 @@
+Ramo
+Copyright 2026 Ramo contributors
+
+Ramo's agent kernel is derived in part from Pi 1.4.0:
+Copyright (c) 2025 Mario Zechner
+Licensed under the MIT License.
+See third_party/pi/LICENSE and THIRD-PARTY-NOTICES.txt.
+
+Ramo is an independent project and is not affiliated with the Apache Software
+Foundation, Ollama, AnySearch, Tavily, OpenAI, Anthropic, Google, OpenRouter,
+NVIDIA, or model vendors. User-supplied models retain their own licenses.
+
+Optional OCR document parsing uses LiteParse (Apache-2.0) and OCRia-nano-1.
+OCRia-nano-1 weights have a separate model license with use restrictions:
+https://huggingface.co/llamaindex/OCRia-nano-1/blob/main/LICENSE
+The weights are not bundled; LiteParse downloads them on first OCR use and
+verifies their pinned hashes. Review that license before using OCR.

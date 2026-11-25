@@ -1,0 +1,305 @@
+/* ---- OC_DESIGN_CSS (extracted verbatim from src/compat/workspace.js) ---- */
+/* Ramo Desktop 2.5 · cohesive neutral visual language. Deliberately no navy/cyan theme. */
+html[data-ramo-theme="graphite"] {
+ --oc-bg:#242522;--oc-nav:#292a27;--oc-paper:#30312e;--oc-surface:#363731;
+ --oc-field:#3b3c37;--oc-hover:#45473f;--oc-rule:rgba(229,228,216,.12);
+ --oc-text:#f2f1e9;--oc-soft:#d6d5cb;--oc-muted:#a9aa9f;
+ --oc-accent:#afbd90;--oc-accent-ink:#252820;--oc-focus:#b6c995;
+ --oc-shadow:0 9px 26px rgba(0,0,0,.10);
+ color-scheme:dark;
+}
+html[data-ramo-theme="paper"] {
+ --oc-bg:#eeede7;--oc-nav:#e6e5de;--oc-paper:#f8f7f2;--oc-surface:#efeee8;
+ --oc-field:#efeee9;--oc-hover:#e2e3d9;--oc-rule:rgba(42,47,36,.14);
+ --oc-text:#272923;--oc-soft:#41463c;--oc-muted:#646b60;
+ --oc-accent:#687b5c;--oc-accent-ink:#fff;--oc-focus:#5a785e;
+ --oc-shadow:0 6px 20px rgba(35,40,29,.055);
+ color-scheme:light;
+}
+html[data-ramo-theme] body {background:var(--oc-bg)!important;color:var(--oc-text);}
+#ramo-stage-overlay-v180{font-family:"Segoe UI Variable","Segoe UI",system-ui,sans-serif;color:var(--oc-text);}
+/* Navigation: quiet selection rather than rows of little boxed cards. */
+#ramo-nav-shell-v190{font-family:"Segoe UI Variable","Segoe UI",system-ui,sans-serif;color:var(--oc-text)}
+#ramo-nav-shell-v190 .ramo-rail{background:var(--oc-nav);border-right:1px solid var(--oc-rule);gap:10px}
+#ramo-nav-shell-v190 .ramo-rail-btn{border:0!important;border-radius:9px;background:transparent!important;color:var(--oc-muted)!important;box-shadow:none!important;transition:background .12s,color .12s}
+#ramo-nav-shell-v190 .ramo-rail-btn:hover{background:var(--oc-hover)!important;color:var(--oc-text)!important}
+#ramo-nav-shell-v190 .ramo-rail-btn.active{background:var(--oc-surface)!important;color:var(--oc-accent)!important;box-shadow:inset 3px 0 var(--oc-accent)!important}
+#ramo-nav-shell-v190 .ramo-rail-spacer{border:0;height:6px}
+#ramo-nav-shell-v190 .ramo-rail-mic{border:0!important;border-radius:9px}
+#ramo-nav-shell-v190 .ramo-rail-mic.listening{background:var(--oc-surface)!important;box-shadow:0 0 0 2px var(--oc-focus)!important}
+#ramo-nav-shell-v190 .ramo-drawer{background:var(--oc-nav);border-right:1px solid var(--oc-rule);box-shadow:8px 0 20px rgba(0,0,0,.06);padding:18px 12px}
+#ramo-nav-shell-v190 .ramo-drawer-head{border-bottom:1px solid var(--oc-rule);margin-bottom:16px;padding:2px 6px 15px}
+#ramo-nav-shell-v190 .ramo-drawer-head b{font-size:18px;letter-spacing:-.35px;color:var(--oc-text);font-weight:680}
+#ramo-nav-shell-v190 .ramo-drawer-head span{display:none}
+#ramo-nav-shell-v190 .ramo-close{border:0;border-radius:8px;color:var(--oc-muted);background:transparent;font-size:22px}
+#ramo-nav-shell-v190 .ramo-close:hover{background:var(--oc-hover);color:var(--oc-text)}
+#ramo-nav-shell-v190 .ramo-assistant-btn,#ramo-nav-shell-v190 .ramo-drawer-btn,#ramo-nav-shell-v190 .ramo-theme-switch{background:transparent;border:0!important;color:var(--oc-soft);grid-template-columns:28px 1fr;min-height:42px;margin:2px 0;padding:8px 10px;border-radius:8px;box-shadow:none!important}
+#ramo-nav-shell-v190 .ramo-assistant-btn{margin-bottom:10px}
+#ramo-nav-shell-v190 .ramo-assistant-btn:hover,#ramo-nav-shell-v190 .ramo-drawer-btn:hover,#ramo-nav-shell-v190 .ramo-theme-switch:hover{background:var(--oc-hover)!important;color:var(--oc-text)}
+#ramo-nav-shell-v190 .ramo-assistant-btn.active,#ramo-nav-shell-v190 .ramo-drawer-btn.active{background:var(--oc-surface)!important;color:var(--oc-text)!important}
+#ramo-nav-shell-v190 .ramo-assistant-btn svg,#ramo-nav-shell-v190 .ramo-drawer-btn svg,#ramo-nav-shell-v190 .ramo-theme-switch svg{width:18px;height:18px;color:var(--oc-muted)!important}
+#ramo-nav-shell-v190 .ramo-drawer-btn b,#ramo-nav-shell-v190 .ramo-assistant-btn b,#ramo-nav-shell-v190 .ramo-theme-switch b{font-size:14px;font-weight:540;letter-spacing:0;color:inherit}
+#ramo-nav-shell-v190 .ramo-assistant-btn small,#ramo-nav-shell-v190 .ramo-drawer-btn small{display:none}
+#ramo-nav-shell-v190 .ramo-section-label,#ramo-nav-shell-v190 .ramo-drawer-context{display:none}
+#ramo-nav-shell-v190 .ramo-drawer-mic{background:transparent!important}
+#ramo-nav-shell-v190 .ramo-theme-switch{display:grid;width:100%;align-items:center;text-align:left;cursor:pointer;font:inherit}
+#ramo-nav-shell-v190 .ramo-theme-name{font-size:11px;font-weight:450;color:var(--oc-muted);margin-top:3px;display:block}
+#ramo-nav-shell-v190 .ramo-nav-separator{border-top:1px solid var(--oc-rule);margin:10px 4px 8px}
+/* Composer: ONE continuous input, quiet secondary microphone, meaningful send. */
+#ramo-composer-v180{border:1px solid var(--oc-rule)!important;background:var(--oc-paper)!important;box-shadow:var(--oc-shadow)!important;border-radius:13px!important;gap:7px!important}
+#ramo-command-input-v180{background:transparent!important;color:var(--oc-text)!important;border:0!important;box-shadow:none!important;font-family:"Segoe UI Variable","Segoe UI",system-ui,sans-serif!important;font-size:15px!important;caret-color:var(--oc-focus)!important}
+#ramo-command-input-v180::placeholder{color:var(--oc-muted)!important;opacity:1}
+#ramo-command-input-v180:focus-visible{outline:0!important}
+#ramo-composer-v180:focus-within{border-color:var(--oc-focus)!important}
+#ramo-composer-mic,#ramo-composer-attach,#ramo-composer-send{opacity:.95}
+#ramo-composer-mic svg,#ramo-composer-attach svg,#ramo-composer-send svg{width:100%;height:100%;border-radius:8px}
+#ramo-composer-mic svg circle,#ramo-composer-attach svg circle,#ramo-composer-mic svg rect,#ramo-composer-attach svg rect,#ramo-composer-send svg rect{fill:transparent;stroke:none}
+#ramo-composer-mic svg path,#ramo-composer-attach svg path,#ramo-composer-mic svg g,#ramo-composer-attach svg g{stroke:var(--oc-muted)}
+#ramo-composer-send svg path{stroke:var(--oc-text)}
+#ramo-composer-send{background:var(--oc-surface)!important;border-radius:9px}
+#ramo-composer-send:hover{background:var(--oc-hover)!important}
+/* One content canvas: avoid outlines within outlines. */
+#ramo-workspace-pane-v180,#ramo-workspace-pane-v180.page-mode{border:0!important;background:transparent!important;box-shadow:none!important;border-radius:0!important}
+#ramo-workspace-pane-v180 .ramo-w-head,#ramo-workspace-pane-v180.page-mode .ramo-w-head{background:transparent!important;border:0!important;min-height:60px;padding:8px 12px 14px}
+#ramo-workspace-pane-v180 .ramo-w-kicker,#ramo-workspace-pane-v180 .ramo-w-model{display:none!important}
+#ramo-workspace-pane-v180 .ramo-w-subtitle{display:block!important;color:var(--oc-muted,#a0a8a5);font:400 12.5px/1.45 "Segoe UI",system-ui,sans-serif;max-width:560px}
+#ramo-workspace-pane-v180 .ramo-w-subtitle:empty{display:none!important}
+#ramo-workspace-pane-v180 .ramo-w-name,#ramo-workspace-pane-v180.page-mode .ramo-w-name{font-family:"Segoe UI Variable","Segoe UI",system-ui,sans-serif;font-weight:620;font-size:20px;letter-spacing:-.5px;color:var(--oc-text);margin-top:0}
+#ramo-workspace-pane-v180 .ramo-w-actions button{border:0!important;background:transparent!important;color:var(--oc-muted)!important;font-size:12px!important;padding:7px 10px!important}
+#ramo-workspace-pane-v180 .ramo-w-actions button:hover{background:var(--oc-hover)!important;color:var(--oc-text)!important}
+#ramo-workspace-pane-v180 .ramo-chat-scroll{padding:6px 18px 28px;scrollbar-color:var(--oc-rule) transparent}
+#ramo-workspace-pane-v180 .ramo-reading{font:400 15px/1.68 "Segoe UI Variable","Segoe UI",system-ui,sans-serif;max-width:72ch;color:var(--oc-soft)}
+#ramo-workspace-pane-v180 .ramo-reading h1,#ramo-workspace-pane-v180 .ramo-reading h2,#ramo-workspace-pane-v180 .ramo-reading h3,#ramo-workspace-pane-v180 .ramo-reading h4{color:var(--oc-text);letter-spacing:-.02em}
+#ramo-workspace-pane-v180 .ramo-reading code{background:var(--oc-surface);color:var(--oc-text)}
+#ramo-workspace-pane-v180 .ramo-reading strong{color:var(--oc-text)}
+#ramo-workspace-pane-v180 .ramo-empty{padding-top:20px;color:var(--oc-muted);justify-content:center}
+#ramo-workspace-pane-v180 .ramo-empty b{color:var(--oc-text);font-size:18px;font-weight:570}
+#ramo-workspace-pane-v180 .ramo-empty span{font-size:14px;color:var(--oc-muted)}
+/* Pages embedded by the existing assistant backend: no functional changes. */
+html[data-ramo-theme] .tam-workspace{color:var(--oc-text);font:14px/1.5 "Segoe UI Variable","Segoe UI",system-ui,sans-serif;background:var(--oc-bg)}
+html[data-ramo-theme] .tam-workspace .panel,html[data-ramo-theme] .tam-workspace[data-embedded="1"] .panel{background:transparent;gap:14px;padding:12px 16px}
+html[data-ramo-theme] .tam-workspace h2,html[data-ramo-theme] .tam-workspace h3{color:var(--oc-text);letter-spacing:-.02em}
+html[data-ramo-theme] .tam-workspace .hub-kicker{display:none}
+html[data-ramo-theme] .tam-workspace button{background:var(--oc-surface);color:var(--oc-text);border:1px solid transparent;border-radius:8px;padding:8px 12px;font-size:13px;font-weight:520}
+html[data-ramo-theme] .tam-workspace button:hover{background:var(--oc-hover)}
+html[data-ramo-theme] .tam-workspace button[aria-selected="true"]{color:var(--oc-text);background:var(--oc-hover);border-bottom:2px solid var(--oc-accent);box-shadow:none}
+html[data-ramo-theme] .tam-workspace input:not([type="checkbox"]):not([type="file"]),html[data-ramo-theme] .tam-workspace select,html[data-ramo-theme] .tam-workspace textarea{background:var(--oc-paper);color:var(--oc-text);border:1px solid var(--oc-rule);border-radius:8px;font-family:"Segoe UI Variable","Segoe UI",system-ui,sans-serif;font-size:14px}
+html[data-ramo-theme] .tam-workspace textarea{font-family:ui-monospace,Consolas,monospace;line-height:1.6}
+html[data-ramo-theme] .tam-workspace input::placeholder,html[data-ramo-theme] .tam-workspace textarea::placeholder{color:var(--oc-muted)}
+html[data-ramo-theme] .tam-workspace :is(button,input,textarea,select):focus-visible{outline:2px solid var(--oc-focus);outline-offset:2px}
+html[data-ramo-theme] .tam-workspace .hint,html[data-ramo-theme] .tam-workspace .meta{color:var(--oc-muted);font-size:12.5px}
+html[data-ramo-theme] .tam-workspace .summary{color:var(--oc-soft);font-size:13px}
+html[data-ramo-theme] .tam-workspace .card,html[data-ramo-theme] .tam-workspace .section,html[data-ramo-theme] .tam-workspace .conversation{background:var(--oc-paper);border:0;border-radius:10px;padding:16px}
+html[data-ramo-theme] .tam-workspace .card h3,html[data-ramo-theme] .tam-workspace .section h3{color:var(--oc-text);font-size:16px}
+html[data-ramo-theme] .tam-workspace .badge{background:var(--oc-surface);border:0;color:var(--oc-muted);border-radius:5px}
+html[data-ramo-theme] .tam-workspace .stat{background:var(--oc-surface);border:0;border-radius:8px}
+html[data-ramo-theme] .tam-workspace .stat strong{color:var(--oc-text)}
+html[data-ramo-theme] .tam-workspace .role{color:var(--oc-muted)}
+html[data-ramo-theme] .tam-workspace .bubble.user{background:var(--oc-surface)}
+html[data-ramo-theme] .tam-workspace .bubble.assistant{background:var(--oc-paper)}
+html[data-ramo-theme] .tam-workspace .memory-shell{grid-template-columns:minmax(0,1fr) minmax(230px,290px);gap:16px}
+html[data-ramo-theme] .tam-workspace .memory-map{background:var(--oc-paper);border:0;border-radius:12px}
+html[data-ramo-theme] .tam-workspace .memory-inspector{background:var(--oc-paper);border:0;border-radius:12px;color:var(--oc-soft)}
+html[data-ramo-theme] .tam-workspace .memory-inspector-title{color:var(--oc-text)}
+html[data-ramo-theme] .tam-workspace .memory-node{color:var(--oc-text)}
+html[data-ramo-theme] .tam-workspace .memory-empty{color:var(--oc-muted)}
+html[data-ramo-theme] .tam-workspace .research-source{background:var(--oc-paper);border:0;border-bottom:1px solid var(--oc-rule);border-radius:7px;color:var(--oc-text)}
+html[data-ramo-theme] .tam-workspace .research-snippet{color:var(--oc-muted)}
+html[data-ramo-theme] .tam-workspace .list{gap:8px}
+html[data-ramo-theme] .tam-workspace .items{gap:5px}
+html[data-ramo-theme] .tam-workspace .items button{text-align:left}
+html[data-ramo-theme] .tam-workspace .split{grid-template-columns:minmax(155px,235px) minmax(0,1fr);gap:18px}
+html[data-ramo-theme] .tam-workspace .notice{color:var(--oc-accent)}
+html[data-ramo-theme] .tam-workspace a{color:var(--oc-accent)}
+@media(max-width:780px){html[data-ramo-theme] .tam-workspace .memory-shell{grid-template-columns:1fr;overflow:auto;height:auto;max-height:100%}html[data-ramo-theme] .tam-workspace .memory-map{min-height:230px}html[data-ramo-theme] .tam-workspace .split{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#ramo-window-art-v210 img{animation-duration:.001s!important}#ramo-nav-shell-v190 *{transition:none!important}}
+
+
+/* ---- OC_V26_CSS (extracted verbatim from src/compat/workspace.js) ---- */
+/* Ramo 2.6 — vivid identity / quiet working surfaces */
+html[data-ramo-theme="graphite"]{--oc-bg:#202322;--oc-nav:#272b29;--oc-paper:#272b2a;--oc-surface:#303633;--oc-field:#333835;--oc-hover:#3a413d;--oc-rule:rgba(228,237,229,.105);--oc-text:#f4f3ee;--oc-soft:#dcdfd8;--oc-muted:#a4aca4;--oc-accent:#c9d2c3;--oc-accent-ink:#202522;--oc-focus:#c7d8c3;color-scheme:dark}
+html[data-ramo-theme="paper"]{--oc-bg:#f4f3ed;--oc-nav:#ecebe4;--oc-paper:#fffefa;--oc-surface:#e9ece6;--oc-field:#efeee9;--oc-hover:#dfe5de;--oc-rule:rgba(42,54,46,.14);--oc-text:#252b27;--oc-soft:#454d46;--oc-muted:#69756c;--oc-accent:#476452;--oc-accent-ink:#fff;--oc-focus:#456e50;color-scheme:light}
+#ramo-stage-overlay-v180{font-family:"Segoe UI Variable","Segoe UI",system-ui,sans-serif}
+/* Navigation and menu are parts of one system, not two separate apps. */
+#ramo-nav-shell-v190 .ramo-rail{gap:8px;background:var(--oc-nav)}
+#ramo-nav-shell-v190 .ramo-rail-btn{border-radius:10px;color:var(--oc-muted)!important}
+#ramo-nav-shell-v190 .ramo-rail-btn.active{color:var(--oc-text)!important;box-shadow:inset 2px 0 var(--oc-text)!important}
+#ramo-nav-shell-v190 .ramo-assistant-btn,#ramo-nav-shell-v190 .ramo-drawer-btn{min-height:43px;margin:2px 0;border-radius:9px}
+#ramo-nav-shell-v190 .ramo-drawer{box-shadow:8px 0 16px rgba(0,0,0,.045)}
+#ramo-nav-shell-v190 .ramo-drawer-head{border-bottom:0;padding-bottom:7px;margin-bottom:12px}
+#ramo-nav-shell-v190 .ramo-assistant-btn{margin-bottom:6px}
+#ramo-nav-shell-v190 .ramo-assistant-btn svg,#ramo-nav-shell-v190 .ramo-drawer-btn svg{width:19px;height:19px}
+#ramo-nav-shell-v190 .ramo-nav-separator{margin:14px 7px 9px}
+#ramo-nav-shell-v190 .ramo-theme-switch{margin-top:6px}
+#ramo-nav-shell-v190 .ramo-theme-switch svg{width:18px;height:18px}
+#ramo-nav-shell-v190 .ramo-rail-btn[data-page="system"]{margin-top:auto}
+#ramo-nav-shell-v190 .ramo-rail-btn[data-page="system"]+ .ramo-rail-btn{margin-top:0}
+#ramo-composer-v180{border-radius:15px!important;box-shadow:none!important;padding-left:10px!important;padding-right:8px!important}
+#ramo-composer-v180 #ramo-composer-send{background:var(--oc-surface)!important;border:0!important}
+#ramo-composer-v180 #ramo-composer-send:hover{background:var(--oc-hover)!important}
+#ramo-workspace-pane-v180 .ramo-w-head{min-height:56px!important;padding-left:8px!important;padding-top:4px!important}
+#ramo-workspace-pane-v180 .ramo-w-name{font-size:18px!important;font-weight:620!important;letter-spacing:-.4px}
+#ramo-workspace-pane-v180 .ramo-w-copy{color:var(--oc-muted)!important}
+#ramo-workspace-pane-v180 .ramo-chat-scroll{padding:7px 14px 32px!important}
+#ramo-workspace-pane-v180 .ramo-reading{font-size:15px!important;line-height:1.7!important}
+#ramo-workspace-pane-v180 .ramo-empty{padding-top:8px!important}
+#ramo-workspace-pane-v180 .ramo-empty b{font-size:16px!important;font-weight:580!important}
+#ramo-core-layer{position:absolute;pointer-events:none;z-index:1;overflow:visible;contain:layout style}
+.oc-aster-svg{width:100%;height:100%;display:block;overflow:visible;touch-action:none;user-select:none;pointer-events:auto}
+#ramo-core-layer .oc-core-caption{position:absolute;top:-12px;left:0;width:100%;text-align:center;font:600 11px/1.2 "Segoe UI Variable","Segoe UI",system-ui,sans-serif;letter-spacing:.045em;color:var(--oc-soft);pointer-events:none}
+#ramo-core-layer .oc-core-note{position:absolute;top:calc(100% + 4px);left:-14%;width:128%;text-align:center;font:500 12px/1.3 "Segoe UI Variable","Segoe UI",system-ui,sans-serif;color:var(--oc-muted);letter-spacing:.01em;white-space:nowrap;pointer-events:none}
+#ramo-core-layer .oc-core-caption::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--core-primary);margin-right:7px;vertical-align:2px}
+/* Aster presence artwork, extracted without the standalone demo page or controls. */
+.oc-aster-svg .floor-track{fill:none;stroke:#567d9a;stroke-width:1.25;stroke-opacity:.21}
+.oc-aster-svg .primary-track{fill:none;stroke:#81afc8;stroke-width:1;stroke-opacity:.14}
+.oc-aster-svg .secondary-track{fill:none;stroke:#7497b0;stroke-width:1;stroke-opacity:.19}
+.oc-aster-svg .outer-piece{cursor:grab}
+.oc-aster-svg.dragging .outer-piece{cursor:grabbing}
+.oc-aster-svg .segment-bloom{stroke:var(--model);stroke-opacity:.23;stroke-width:22;stroke-linecap:round;filter:url(#ocAsterBloom)}
+.oc-aster-svg .segment-face{stroke:var(--model);stroke-opacity:.92;stroke-width:13;stroke-linecap:round;fill:none}
+.oc-aster-svg .segment-spec{stroke:#f3ffff;stroke-opacity:.58;stroke-width:2.15;stroke-linecap:round;fill:none}
+.oc-aster-svg .inner-face{fill:none;stroke:var(--model);stroke-width:5;stroke-linecap:round}
+.oc-aster-svg .inner-bloom{fill:none;stroke:var(--model);stroke-opacity:.22;stroke-width:11;stroke-linecap:round;filter:url(#ocAsterBloom)}
+.oc-aster-svg .outer-aura{stroke:var(--model);fill:none;stroke-width:1.5;stroke-opacity:.13}
+.oc-aster-svg .core-halo{fill:url(#ocAsterHaloFade)}
+.oc-aster-svg .core-body{fill:#4f6d84;stroke:#e9f7ff;stroke-opacity:.24;stroke-width:1.25}
+.oc-aster-svg .core-innerglow{fill:var(--aura1);fill-opacity:.10}
+.oc-aster-svg .core-center{fill:#f5fbff}
+.oc-aster-svg .wave-ripple{fill:none;stroke:var(--aura1);stroke-opacity:0;stroke-width:1.5}
+.oc-aster-svg .segment-face,.oc-aster-svg .inner-face,.oc-aster-svg .core-halo,.oc-aster-svg .core-innerglow{transition:stroke .45s ease,fill .45s ease,opacity .35s ease}
+@media(prefers-reduced-motion:reduce){.oc-aster-svg{animation:none!important}}
+#ramo-nav-shell-v190 .ramo-mini-core{color:var(--core-primary,#88ed61)!important}
+#ramo-nav-shell-v190 .ramo-mini-core .oc-mini-ring{transform-origin:12px 12px;animation:oc-mini-turn var(--mini-dur,65s) linear infinite}
+#ramo-nav-shell-v190 [data-page="home"].active .ramo-mini-core{filter:drop-shadow(0 0 4px color-mix(in srgb,var(--core-primary) 30%,transparent))}
+@keyframes oc-mini-turn{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){#ramo-nav-shell-v190 .oc-mini-ring{animation:none!important}}
+
+
+/* ---- OC_V27_CSS (extracted verbatim from src/compat/workspace.js) ---- */
+
+
+/* ---- OC_V281_CSS (extracted verbatim from src/compat/workspace.js) ---- */
+/* 2.8.12 neutral Graphite background; color belongs to the core, not the canvas. */
+html[data-ramo-theme="graphite"]{--oc-bg:#1f2123;--oc-nav:#242628;--oc-paper:#282b2d;--oc-surface:#303437;--oc-field:#313538;--oc-hover:#393e41;--oc-rule:rgba(236,241,244,.105);--oc-text:#f0f2f3;--oc-soft:#d1d7d9;--oc-muted:#9ca6ac;--oc-accent:#aebcba;--oc-focus:#9bbdb9;--oc-accent-ink:#1f2123}
+#ramo-composer-v180 #ramo-composer-mic,#ramo-composer-attach{color:var(--oc-muted)!important;background:transparent!important;opacity:1;display:grid!important;place-items:center!important}
+#ramo-composer-v180 #ramo-composer-mic:hover,#ramo-composer-attach:hover{color:var(--oc-text)!important}
+#ramo-composer-v180 #ramo-composer-mic svg,#ramo-composer-attach svg{width:25px!important;height:25px!important;overflow:visible}
+#ramo-composer-v180 #ramo-composer-mic svg rect,#ramo-composer-attach svg rect{fill:none!important;stroke:currentColor!important}
+#ramo-composer-v180 #ramo-composer-mic svg path,#ramo-composer-attach svg path{stroke:currentColor!important}
+#ramo-nav-shell-v190 .ramo-rail-btn[data-page="system"]{margin-top:0}
+#ramo-nav-shell-v190 .ramo-rail-btn[data-page="computer"]{margin-top:0}
+#ramo-nav-shell-v190 .ramo-rail-btn[data-page="computer"].active,#ramo-nav-shell-v190 .ramo-rail-btn[data-page="models"].active{background:var(--oc-surface)!important;color:var(--oc-text)!important}
+
+
+/* ---- OC_V214_CSS (extracted verbatim from src/compat/workspace.js) ---- */
+/* 2.8.14: unified Graphite for all first-party dialogs and navigation. */
+#ramo-workspace-pane-v180 .ramo-w-title{flex:1 1 180px;min-width:135px}
+#ramo-workspace-pane-v180 .ramo-w-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:calc(100% - 4px)}
+#ramo-workspace-pane-v180 .ramo-w-head{gap:12px!important;flex-wrap:wrap}
+#ramo-workspace-pane-v180 .ramo-w-actions{max-width:100%;flex:0 1 auto}
+
+html[data-ramo-theme="graphite"]{--oc-bg:#1f2123;--oc-nav:#242628;--oc-paper:#282b2d;--oc-surface:#303437;--oc-field:#313538;--oc-hover:#393e41;--oc-rule:#393e41;--oc-text:#eef0ef;--oc-soft:#d1d6d3;--oc-muted:#a0a8a5;--oc-accent:#a0c4b0;--oc-focus:#a3c8b7}
+#ramo-workspace-pane-v180 .oc-voice-panel,
+#ramo-workspace-pane-v180 .oc-chat-menu{
+ background:var(--oc-paper)!important;color:var(--oc-text)!important;border:1px solid var(--oc-rule)!important;border-radius:12px!important;box-shadow:0 14px 36px rgba(0,0,0,.40)!important;font-family:"Segoe UI Variable","Segoe UI",system-ui,sans-serif!important}
+#ramo-workspace-pane-v180 .oc-voice-panel p,#ramo-workspace-pane-v180 .oc-voice-panel .oc-voice-path{color:var(--oc-muted)!important}
+#ramo-workspace-pane-v180 .oc-voice-panel select,
+#ramo-workspace-pane-v180 .oc-model-picker select{
+ color:var(--oc-text)!important;background:var(--oc-surface)!important;border:1px solid var(--oc-rule)!important;border-radius:8px!important}
+#ramo-workspace-pane-v180 .oc-voice-panel label,#ramo-workspace-pane-v180 .oc-model-picker{color:var(--oc-soft)!important}
+#ramo-workspace-pane-v180 .oc-voice-row button,
+#ramo-workspace-pane-v180 .oc-chat-option button{color:var(--oc-text)!important;background:var(--oc-surface)!important;border:1px solid var(--oc-rule)!important;border-radius:8px!important}
+#ramo-workspace-pane-v180 .oc-chat-option button{border-color:transparent!important;background:transparent!important}
+#ramo-workspace-pane-v180 .oc-chat-option button:hover,#ramo-workspace-pane-v180 .oc-voice-row button:hover{background:var(--oc-hover)!important}
+#ramo-workspace-pane-v180 .oc-voice-message{color:var(--oc-muted)!important}
+#ramo-workspace-pane-v180 .ramo-w-actions{gap:5px!important;flex-wrap:wrap!important;justify-content:flex-end!important}
+#ramo-workspace-pane-v180 .ramo-w-newchat{font-weight:650!important;white-space:nowrap!important;color:var(--oc-text)!important}
+#ramo-workspace-pane-v180 .ramo-chat-scroll{scrollbar-color:var(--oc-rule) transparent!important}
+#ramo-workspace-pane-v180 .ramo-reading code{color:var(--oc-soft)!important;background:var(--oc-surface)!important}
+#ramo-nav-shell-v190 .ramo-drawer-chat-list{display:flex;flex-direction:column;gap:3px;overflow:auto;max-height:min(34vh,300px);padding:5px 1px;scrollbar-color:var(--oc-rule) transparent}
+#ramo-nav-shell-v190 .ramo-drawer-newchat{width:100%;display:flex;gap:10px;align-items:center;text-align:left;cursor:pointer;background:var(--oc-surface);border:1px solid var(--oc-rule);border-radius:9px;padding:11px 12px;color:var(--oc-text);font:600 13px "Segoe UI",system-ui,sans-serif;margin:0 0 14px}
+#ramo-nav-shell-v190 .ramo-drawer-newchat:hover{background:var(--oc-hover)}
+#ramo-nav-shell-v190 .ramo-drawer-newchat svg{width:17px;height:17px;flex-shrink:0}
+#ramo-nav-shell-v190 .ramo-drawer-chat-heading{color:var(--oc-muted);font:600 11px "Segoe UI",system-ui,sans-serif;letter-spacing:.03em;padding:1px 9px 6px}
+#ramo-nav-shell-v190 .ramo-drawer-chat-entry{display:block;width:100%;border:0;border-radius:7px;background:transparent;color:var(--oc-soft);text-align:left;font:500 13px "Segoe UI",system-ui,sans-serif;padding:9px 11px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;cursor:pointer}
+#ramo-nav-shell-v190 .ramo-drawer-chat-entry:hover{background:var(--oc-hover)}
+#ramo-nav-shell-v190 .ramo-drawer-chat-entry.active{color:var(--oc-text);background:var(--oc-surface)}
+#ramo-composer-v180{position:absolute}
+#ramo-composer-v180 .oc-stt-status{position:absolute;bottom:calc(100% + 9px);left:0;min-width:270px;max-width:min(560px,100%);border:1px solid var(--oc-rule);border-radius:11px;padding:11px 13px;display:flex;align-items:center;gap:11px;background:var(--oc-paper);color:var(--oc-text);box-shadow:0 9px 28px rgba(0,0,0,.34);font:13px "Segoe UI",system-ui,sans-serif;z-index:9}
+#ramo-composer-v180 .oc-stt-status[hidden]{display:none!important}
+#ramo-composer-v180 .oc-stt-dot{width:11px;height:11px;border-radius:50%;background:var(--oc-accent);flex:none}
+#ramo-composer-v180 .oc-stt-status[data-phase="listening"] .oc-stt-dot{background:#e46f64;box-shadow:0 0 0 4px rgba(228,111,100,.14);animation:oc-stt-pulse .95s ease-in-out infinite alternate}
+#ramo-composer-v180 .oc-stt-status[data-phase="error"] .oc-stt-dot{background:#e46f64}
+#ramo-composer-v180 .oc-stt-message{flex:1;min-width:0;overflow-wrap:anywhere;line-height:1.4}
+#ramo-composer-v180 .oc-stt-stop{border:1px solid var(--oc-rule);background:var(--oc-surface);color:var(--oc-text);border-radius:7px;padding:7px 10px;cursor:pointer;flex-shrink:0}
+#ramo-composer-v180[data-stt-active="1"]{border-color:#e46f64!important;box-shadow:0 0 0 2px rgba(228,111,100,.16)!important}
+#ramo-composer-mic[data-stt-listening="1"],#ramo-composer-attach[data-stt-listening="1"]{background:rgba(228,111,100,.17)!important;box-shadow:0 0 0 2px #e46f64!important;border-radius:9px!important}
+@keyframes oc-stt-pulse{to{opacity:.48;transform:scale(.7)}}
+@media(max-width:1000px){#ramo-workspace-pane-v180 .ramo-w-actions{gap:2px!important}#ramo-workspace-pane-v180 .ramo-w-actions .ramo-w-chats{display:none!important}}
+
+
+/* ---- OC_V215_CSS (extracted verbatim from src/compat/workspace.js) ---- */
+
+/* 2.8.15 Unified chat: same Graphite tokens for header, menus, conversation and composer. */
+html[data-ramo-theme="graphite"]{--oc-bg:#1f2123;--oc-nav:#242628;--oc-paper:#282b2d;--oc-surface:#303437;--oc-field:#313538;--oc-hover:#393e41;--oc-rule:#393e41;--oc-text:#eef0ef;--oc-soft:#d1d6d3;--oc-muted:#a0a8a5;--oc-accent:#a0c4b0;--oc-focus:#a3c8b7}
+#ramo-workspace-pane-v180:not(.page-mode){border:0!important;background:transparent!important;box-shadow:none!important;border-radius:0!important}
+#ramo-workspace-pane-v180 .ramo-w-head{display:flex!important;flex:none!important;align-items:center!important;gap:12px!important;justify-content:flex-start!important;padding:0 8px 13px!important;border:0!important;background:transparent!important;min-height:44px!important}
+#ramo-workspace-pane-v180 .ramo-w-title{display:flex!important;align-items:center!important;gap:14px!important;min-width:0!important;max-width:100%!important;flex:0 1 auto!important}
+#ramo-workspace-pane-v180 .ramo-w-name{color:var(--oc-text)!important;font:600 19px/1.3 "Segoe UI",system-ui,sans-serif!important;min-width:0!important;max-width:300px!important;overflow:hidden!important;text-overflow:ellipsis!important;white-space:nowrap!important}
+#ramo-workspace-pane-v180 .ramo-w-kicker,#ramo-workspace-pane-v180 .ramo-w-actions{display:none!important}
+#ramo-workspace-pane-v180 .oc-header-model{display:inline-flex!important;gap:0!important;align-items:center!important;flex:none!important;min-width:0!important}
+#ramo-workspace-pane-v180 .oc-header-model[hidden]{display:none!important}
+#ramo-workspace-pane-v180 .oc-header-model .oc-model-label{display:none!important}
+#ramo-workspace-pane-v180 .oc-chat-model{appearance:auto!important;min-width:98px!important;max-width:162px!important;width:auto!important;height:32px!important;padding:4px 9px!important;border-radius:9px!important;color:var(--oc-text)!important;background:var(--oc-surface)!important;border:1px solid var(--oc-rule)!important;font:550 12px "Segoe UI",system-ui,sans-serif!important;cursor:pointer!important}
+#ramo-workspace-pane-v180 .ramo-w-content{min-height:0!important;flex:1!important}
+#ramo-workspace-pane-v180 .ramo-chat-scroll{border:0!important;background:transparent!important;padding:12px 8px 24px!important}
+#ramo-workspace-pane-v180 .ramo-reading{font:14px/1.65 "Segoe UI",system-ui,sans-serif!important;color:var(--oc-soft)!important}
+#ramo-workspace-pane-v180 .ramo-empty{color:var(--oc-muted)!important;padding-top:14px!important}
+#ramo-workspace-pane-v180 .ramo-empty b{color:var(--oc-text)!important}
+#ramo-workspace-pane-v180 .ramo-w-chat{border:0!important;border-radius:9px!important;box-shadow:none!important}
+#ramo-workspace-pane-v180 .ramo-w-chat.user{background:var(--oc-paper)!important;color:var(--oc-text)!important}
+#ramo-workspace-pane-v180 .ramo-w-chat.assistant{background:transparent!important;color:var(--oc-soft)!important}
+#ramo-workspace-pane-v180 .oc-message-actions{display:flex;align-items:center;justify-content:flex-start;margin-top:4px}
+#ramo-workspace-pane-v180 .oc-message-copy{border:0;background:transparent;color:var(--oc-muted);font:500 11px "Segoe UI",system-ui,sans-serif;padding:4px 8px;border-radius:6px;cursor:pointer}
+#ramo-workspace-pane-v180 .oc-message-copy:hover{background:var(--oc-hover);color:var(--oc-text)}
+#ramo-workspace-pane-v180 .oc-inline-link{color:var(--oc-accent)!important}
+#ramo-composer-v180{color:var(--oc-text)!important;border-color:var(--oc-rule)!important;background:var(--oc-paper)!important}
+#ramo-composer-v180 #ramo-composer-mic,#ramo-composer-attach,#ramo-composer-v180 #ramo-composer-send{color:var(--oc-soft)!important}
+#ramo-composer-v180 #ramo-composer-mic:hover,#ramo-composer-attach:hover,#ramo-composer-v180 #ramo-composer-send:hover{background:var(--oc-hover)!important;color:var(--oc-text)!important}
+#ramo-composer-v180 .oc-thinking-quick{flex:none;padding:8px 10px;white-space:nowrap;border:1px solid transparent;border-radius:9px;cursor:pointer;font:600 12px "Segoe UI",system-ui,sans-serif;color:var(--oc-muted);background:transparent}
+#ramo-composer-v180 .oc-thinking-quick:hover{background:var(--oc-hover);color:var(--oc-text)}
+#ramo-composer-v180 .oc-thinking-quick[aria-pressed="true"]{color:var(--oc-text);border-color:rgba(160,196,176,.40);background:rgba(160,196,176,.15)}
+#ramo-composer-v180 .oc-more-quick{flex:none;height:33px;min-width:33px;border:0;border-radius:9px;color:var(--oc-soft);background:transparent;cursor:pointer;font:700 23px/1 "Segoe UI",system-ui,sans-serif}
+#ramo-composer-v180 .oc-more-quick:hover,#ramo-composer-v180 .oc-more-quick[aria-expanded="true"]{background:var(--oc-hover)}
+#ramo-composer-v180 .oc-session-menu,#ramo-composer-v180 .oc-voice-panel{position:absolute!important;bottom:calc(100% + 10px)!important;top:auto!important;right:0!important;left:auto!important;width:min(335px,calc(100vw - 80px))!important;display:flex!important;flex-direction:column!important;gap:13px!important;background:var(--oc-paper)!important;border:1px solid var(--oc-rule)!important;color:var(--oc-text)!important;border-radius:13px!important;box-shadow:0 16px 40px rgba(0,0,0,.38)!important;padding:16px!important;max-height:min(500px,68vh)!important;overflow:auto!important;z-index:2147483500!important}
+#ramo-composer-v180 .oc-session-title{font:650 15px "Segoe UI",system-ui,sans-serif}
+#ramo-composer-v180 .oc-session-field{display:flex;flex-direction:column;gap:7px;font:550 12px "Segoe UI",system-ui,sans-serif;color:var(--oc-soft)}
+#ramo-composer-v180 .oc-session-field select{padding:9px;border:1px solid var(--oc-rule);border-radius:8px;background:var(--oc-surface);color:var(--oc-text)}
+#ramo-composer-v180 .oc-voice-settings{background:var(--oc-surface);color:var(--oc-text);border:1px solid var(--oc-rule);border-radius:9px;padding:10px;text-align:left;cursor:pointer}
+#ramo-composer-v180 .oc-session-help{font:12px/1.5 "Segoe UI",system-ui,sans-serif;color:var(--oc-muted)}
+#ramo-composer-v180 .oc-quick-status{position:absolute;left:10px;bottom:calc(100% + 9px);background:var(--oc-paper);color:var(--oc-soft);border:1px solid var(--oc-rule);border-radius:8px;padding:8px 12px;font:12px "Segoe UI",system-ui,sans-serif}
+#ramo-composer-v180 .oc-quick-status[hidden]{display:none!important}
+#ramo-nav-shell-v190 .ramo-drawer,#ramo-nav-shell-v190 .ramo-rail{background:var(--oc-nav)!important;border-color:var(--oc-rule)!important}
+#ramo-nav-shell-v190 .ramo-rail-btn.active{color:var(--oc-accent)!important;box-shadow:inset 3px 0 var(--oc-accent)!important}
+@media(max-width:1150px){#ramo-workspace-pane-v180 .ramo-w-name{max-width:190px!important}}
+@media(max-width:620px){#ramo-workspace-pane-v180 .ramo-w-head{padding:0 4px 7px!important;min-height:38px!important}#ramo-workspace-pane-v180 .ramo-w-name{font-size:15px!important;max-width:120px!important}#ramo-workspace-pane-v180 .oc-chat-model{min-width:82px!important;max-width:110px!important;font-size:11px!important}#ramo-composer-v180{gap:2px!important;padding:5px!important}#ramo-composer-v180 .oc-thinking-quick{padding:6px 3px;font-size:10px}#ramo-composer-v180 .oc-more-quick{min-width:25px;font-size:19px}#ramo-composer-v180 #ramo-composer-mic,#ramo-composer-attach,#ramo-composer-v180 #ramo-composer-send{min-width:29px!important;width:29px!important}#ramo-composer-v180 #ramo-command-input-v180{padding:0 3px!important}}
+
+
+/* ---- OC_V215_VOICE_CSS (extracted verbatim from src/compat/workspace.js) ---- */
+
+#ramo-composer-v180 .oc-voice-panel{font:12px/1.5 "Segoe UI",system-ui,sans-serif!important}
+#ramo-composer-v180 .oc-voice-panel p,#ramo-composer-v180 .oc-voice-panel .oc-voice-path{color:var(--oc-muted)!important;margin:0}
+#ramo-composer-v180 .oc-voice-panel label{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--oc-soft)}
+#ramo-composer-v180 .oc-voice-panel select{background:var(--oc-surface);border:1px solid var(--oc-rule);border-radius:8px;padding:7px;color:var(--oc-text)}
+#ramo-composer-v180 .oc-voice-panel button{background:var(--oc-surface);border:1px solid var(--oc-rule);border-radius:8px;padding:9px 12px;color:var(--oc-text);cursor:pointer}
+#ramo-composer-v180 .oc-voice-panel button:hover{background:var(--oc-hover)}
+#ramo-composer-v180 .oc-voice-panel .oc-voice-row{display:flex;flex-wrap:wrap;gap:8px}
+#ramo-composer-v180 .oc-voice-panel .oc-voice-message{color:var(--oc-soft)!important}
+
+
+/* ---- OC_TURN_ACTIONS_CSS (extracted verbatim from src/compat/workspace.js) ---- */
+#ramo-workspace-pane-v180 .oc-message-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:9px}#ramo-workspace-pane-v180 .oc-message-actions button{background:transparent;border:0;padding:4px 3px;color:var(--oc-muted,#a6aba7);font:11px 'Segoe UI',system-ui,sans-serif;cursor:pointer;border-radius:4px}#ramo-workspace-pane-v180 .oc-message-actions button:hover{color:var(--oc-text,#fff);background:var(--oc-hover,#343839)}#ramo-workspace-pane-v180 .oc-turn-editor{margin-top:10px;display:grid;gap:9px}#ramo-workspace-pane-v180 .oc-turn-edit-input{display:block;width:100%;box-sizing:border-box;min-height:88px;max-height:260px;resize:vertical;background:var(--oc-surface,#2b2e30);border:1px solid var(--oc-rule,#45494b);border-radius:8px;color:var(--oc-text,#fff);padding:10px;font:13px/1.5 'Segoe UI',system-ui,sans-serif}#ramo-workspace-pane-v180 .oc-turn-edit-actions{display:flex;gap:8px}#ramo-workspace-pane-v180 .oc-turn-edit-actions button{border:1px solid var(--oc-rule,#45494b);background:var(--oc-surface,#2b2e30);color:var(--oc-text,#fff);padding:7px 13px;border-radius:7px;cursor:pointer}
+
+/* ---- OC_MODEL_DISCOVERY_CSS (extracted verbatim from src/compat/workspace.js) ---- */
+#ramo-composer-v180 .oc-model-refresh{display:block;width:100%;background:var(--oc-surface);border:1px solid var(--oc-rule);border-radius:8px;color:var(--oc-text);padding:8px 11px;margin:8px 0 5px;font:500 12px 'Segoe UI',sans-serif;cursor:pointer;text-align:left}#ramo-composer-v180 .oc-model-refresh:hover{background:var(--oc-hover)}#ramo-composer-v180 .oc-model-refresh:disabled{opacity:.6;cursor:wait}#ramo-composer-v180 .oc-model-refresh-note{font:11px 'Segoe UI',sans-serif;color:var(--oc-muted);line-height:1.35;padding:2px 1px 8px}
+

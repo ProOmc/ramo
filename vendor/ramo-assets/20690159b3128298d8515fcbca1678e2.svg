@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="54" viewBox="0 0 70 54">
+<circle cx="35" cy="25" r="20" fill="#081821" stroke="#467b92" stroke-width="1.2"/>
+<circle cx="35" cy="25" r="16" fill="none" stroke="#1d4558" stroke-width=".8" stroke-dasharray="3 3"/>
+<g fill="none" stroke="#c8efff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M27 14h12l6 6v15H27z"/><path d="M39 14v7h6M31 27h10M31 31h8"/></g>
+<text x="35" y="52" text-anchor="middle" fill="#b8d8e7" font-family="Arial,Helvetica,sans-serif" font-size="7.2" letter-spacing=".6">FILES</text>
+</svg>

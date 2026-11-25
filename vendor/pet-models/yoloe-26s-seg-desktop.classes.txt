@@ -1,0 +1,158 @@
+icon
+logo
+button
+text
+window
+menu
+tab
+cursor
+dialog box
+search box
+clock
+notification
+toolbar
+taskbar
+desktop
+file
+folder
+document
+image
+photo
+screenshot
+chart
+graph
+map
+web page
+browser window
+terminal window
+video game
+score
+health bar
+crosshair
+minimap
+inventory
+progress bar
+text box
+mouse pointer
+person
+face
+hand
+cat
+dog
+bird
+horse
+fish
+elephant
+butterfly
+mouse
+rabbit
+bear
+lion
+tiger
+cow
+sheep
+duck
+snake
+spider
+crab
+turtle
+fox
+cup
+bottle
+book
+laptop
+computer
+monitor
+keyboard
+cell phone
+tablet
+television
+remote control
+printer
+scissors
+teddy bear
+hair drier
+toothbrush
+microwave
+oven
+sink
+refrigerator
+backpack
+suitcase
+umbrella
+candle
+guitar
+piano
+drum
+lamp
+vase
+potted plant
+chair
+table
+bed
+sofa
+car
+bicycle
+motorcycle
+bus
+truck
+airplane
+train
+boat
+house
+building
+skyscraper
+bridge
+street
+road
+mountain
+tree
+grass
+sky
+cloud
+water
+river
+beach
+desert
+field
+forest
+fence
+door
+stairs
+pizza
+sandwich
+hamburger
+hot dog
+donut
+cake
+apple
+banana
+orange
+broccoli
+carrot
+bread
+egg
+cheese
+soup
+rice
+salad
+ball
+soccer ball
+basketball
+tennis racket
+skateboard
+surfboard
+skis
+snowboard
+helmet
+robot
+drone
+rocket
+sword
+gun
+rifle
+bow and arrow
+shield
+chess piece
+playing card
+dice

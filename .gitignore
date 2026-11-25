@@ -1,0 +1,22 @@
+node_modules/
+.npm-cache/
+app/
+build/
+release/
+evidence/
+.env
+.env.*
+*.log
+*.zip
+private/
+chats/
+settings/
+api-providers.json
+ramo-models.json
+__pycache__/
+*.pyc
+# Bootstrap-only large binaries and npm runtime inputs.
+vendor/electron/
+vendor/node/
+vendor/node_modules/
+# Repository inputs that must remain tracked: artwork and detector weights.

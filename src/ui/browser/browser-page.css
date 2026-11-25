@@ -1,0 +1,211 @@
+/*
+ * Browser tab styling. Reuses the shell's page scaffolding and tokens so the
+ * viewer reads as part of the app, not as a card floating over the chat.
+ * Selectors are scoped to the tab to override the legacy floating-pane rules.
+ */
+.ramo-browser-root[data-page-view="browser"] {
+  position: absolute;
+  inset: 0;
+  z-index: auto;
+  pointer-events: auto;
+  color: var(--oc-text, #eef0ef);
+}
+.ramo-browser-root[data-page-view="browser"] .oc-browser-scroll {
+  height: 100%;
+  padding: 18px clamp(14px, 2.4vw, 28px) 20px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.ramo-browser-root[data-page-view="browser"] .oc-browser-page {
+  max-width: none;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  min-height: 0;
+}
+.oc-browser-page-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  flex: none;
+}
+.oc-browser-heading { min-width: 260px; }
+.oc-browser-heading .oc-page-title { margin-bottom: 4px; }
+.oc-browser-heading .oc-page-subtitle { margin: 0; }
+
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-card {
+  position: static;
+  right: auto;
+  bottom: auto;
+  width: auto;
+  max-width: 100%;
+  padding: 8px 10px;
+  border-radius: 11px;
+  border: 1px solid var(--oc-rule, #3e4545);
+  background: var(--oc-field, #313538);
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  pointer-events: auto;
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-icon {
+  width: 26px;
+  height: 26px;
+  flex: none;
+}
+.ramo-browser-card-copy { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-title { font-size: 12.5px; }
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-dot { margin-left: 0; order: 3; }
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-status {
+  margin: 0;
+  max-width: 190px;
+  font-size: 11px;
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-preview {
+  width: 76px;
+  height: 44px;
+  flex: none;
+  border-radius: 6px;
+  font-size: 9px;
+  text-align: center;
+  padding: 0;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--oc-rule, #3e4545);
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-preview img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-open {
+  width: auto;
+  margin: 0;
+  flex: none;
+  padding: 7px 12px;
+  border: 1px solid var(--oc-rule, #3e4545);
+  border-radius: 8px;
+  background: var(--oc-surface, #303437);
+  color: var(--oc-soft, #d1d7d9);
+  font: 500 12px "Segoe UI", system-ui, sans-serif;
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-open:hover {
+  border-color: var(--oc-accent, #a0c4b0);
+  color: var(--oc-text, #eef0ef);
+}
+
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-window {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  width: 100%;
+  height: auto;
+  flex: 1 0 280px;
+  min-height: 280px;
+  border-radius: 12px;
+  border: 1px solid var(--oc-rule, #3e4545);
+  background: var(--oc-paper, #282b2d);
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-window-head {
+  gap: 11px;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--oc-rule, #3e4545);
+}
+.ramo-browser-window-title { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.ramo-browser-window-title strong { font: 600 13px/1.3 "Segoe UI", system-ui, sans-serif; }
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-window-status {
+  font-size: 11px;
+  color: var(--oc-muted, #a0a8a5);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-close {
+  margin-left: auto;
+  background: transparent;
+  border: 0;
+  color: var(--oc-muted, #a0a8a5);
+  font-size: 19px;
+  line-height: 1;
+  cursor: pointer;
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-close:hover { color: var(--oc-text, #eef0ef); }
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-url {
+  padding: 7px 14px;
+  font: 500 11.5px/1.4 "Segoe UI", system-ui, sans-serif;
+  color: var(--oc-soft, #d1d7d9);
+  background: var(--oc-field, #313538);
+  border-bottom: 1px solid var(--oc-rule, #3e4545);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-viewport {
+  flex: 1 1 auto;
+  min-height: 140px;
+  margin: 10px 12px 4px;
+  background: var(--oc-bg, #1f2123);
+  border: 1px solid var(--oc-rule, #3e4545);
+  border-radius: 0;
+  display: grid;
+  place-items: center;
+  color: var(--oc-muted, #a0a8a5);
+  font: 500 12px "Segoe UI", system-ui, sans-serif;
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-actions {
+  display: flex;
+  gap: 9px;
+  padding: 11px 12px 12px;
+  border-top: 1px solid transparent;
+  background: transparent;
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-take,
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-stop {
+  width: auto;
+  margin: 0;
+  padding: 8px 13px;
+  border: 1px solid var(--oc-rule, #3e4545);
+  border-radius: 8px;
+  background: var(--oc-surface, #303437);
+  color: var(--oc-soft, #d1d7d9);
+  font: 500 12px "Segoe UI", system-ui, sans-serif;
+  font-weight: 500;
+}
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-take:hover,
+.ramo-browser-root[data-page-view="browser"] .ramo-browser-stop:hover {
+  border-color: var(--oc-accent, #a0c4b0);
+  color: var(--oc-text, #eef0ef);
+}
+.oc-browser-error {
+  flex: none;
+  border: 1px solid rgba(214, 95, 95, .5);
+  border-radius: 8px;
+  background: rgba(127, 29, 29, .28);
+  color: #ffdada;
+  padding: 8px 12px;
+  font: 400 12px/1.4 "Segoe UI", system-ui, sans-serif;
+}
+
+@media (max-height: 650px) {
+  .ramo-browser-root[data-page-view="browser"] .oc-browser-heading .oc-page-subtitle { display: none; }
+  .ramo-browser-root[data-page-view="browser"] .ramo-browser-preview { display: none; }
+  .ramo-browser-root[data-page-view="browser"] .ramo-browser-window { flex-basis: 250px; min-height: 250px; }
+}
+@media (max-width: 900px) {
+  .ramo-browser-root[data-page-view="browser"] .oc-browser-scroll { padding: 12px 10px 14px; }
+  .ramo-browser-root[data-page-view="browser"] .ramo-browser-card { width: 100%; justify-content: space-between; }
+  .ramo-browser-root[data-page-view="browser"] .ramo-browser-preview { display: none; }
+}

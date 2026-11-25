@@ -1,0 +1,17 @@
+{
+  "assistant-model": { "name": "Assistant Model", "value": "" },
+  "research-model": { "name": "Research Report Model", "value": "" },
+  "ollama-chat-url": { "name": "Ollama Chat URL", "value": "http://127.0.0.1:11434/api/chat" },
+  "remote-ollama-url": { "name": "Remote Ollama URL", "value": "" },
+  "research-backend": { "name": "Research Model Backend", "value": "ollama" },
+  "research-openai-url": { "name": "Research OpenAI Chat URL", "value": "" },
+  "research-context": { "name": "Research Report Context", "value": 32768 },
+  "research-budget": { "name": "Research Budget Seconds", "value": 900 },
+  "research-rounds": { "name": "Research Maximum Rounds", "value": 8 },
+  "voice-enabled": { "name": "Voice Enabled", "value": false },
+  "tool-access": { "name": "Tool Access", "value": "ask" },
+  "anysearch-key": { "name": "AnySearch API Key", "value": "" },
+  "anysearch-relay": { "name": "AnySearch Relay URL", "value": "direct" },
+  "tavily-key": { "name": "Tavily API Key", "value": "" },
+  "system-prompt": { "name": "System_Prompt", "value": "You are Ramo, a helpful local-first assistant." }
+}

@@ -1,0 +1,257 @@
+{
+  "frozen": false,
+  "phase0Started": "2026-11-08",
+  "phase0FrozenDate": null,
+  "frozenBy": null,
+  "screen": {
+    "host": "Windows test laptop",
+    "display": "\\\\.\\DISPLAY5 (primary), 1920x1200, DPI-1.0",
+    "scaleFactor": 1.0,
+    "grid": "box coordinates are in 0..1000 top-left normalised units: x = pixelX/1920*1000, y = pixelY/1200*1000",
+    "sourceCaptures": "_captures/ (full-resolution 1920x1200 PNGs from the interactive desktop)",
+    "notes": "Screens captured from the real desktop while several apps were open. The chat transcript on the original 'shot-desktop-now' capture contains private session text - consider regenerating that case before publishing."
+  },
+  "scoring": {
+    "passThresholds": {
+      "presentOverall": 0.70,
+      "presentTinySmall": 0.50,
+      "absentCorrect": 1.00,
+      "medianCentreDistanceOnMisses": 80
+    },
+    "absentRule": "absent: predictedBox===null counts correct; any predictedBox counts false_draw. abstain=correct.",
+    "primaryMetric": "point in box for present items; absent decision for absent items",
+    "secondaryMetric": "centre distance in normalised units, computed over misses (present items only)"
+  },
+  "cases": [
+    {
+      "id": "G01",
+      "name": "primary desktop icon (top-left)",
+      "target": "the desktop icon in the top-left corner of the screen",
+      "category": "present",
+      "sizeClass": "tiny",
+      "screenshot": "_captures/shot-clean-desktop.png",
+      "box": null,
+      "boxEstimatedPx": {"left": 20, "top": 44, "right": 72, "bottom": 76},
+      "verified": false,
+      "note": "UNVERIFIED - I cannot inspect images; coordinate is a rough estimate from the desktop capture. Confirm before freeze. Pick a specific named desktop icon (e.g. 'Recycle Bin' or the leftmost top-row icon) and tighten to the icon only, not its label."
+    },
+    {
+      "id": "G02",
+      "name": "window close button (top-right)",
+      "target": "the close button on the window in the top-right corner",
+      "category": "present",
+      "sizeClass": "tiny",
+      "screenshot": "_captures/shot-edge.png",
+      "box": null,
+      "boxEstimatedPx": {"left": 1888, "top": 4, "right": 1918, "bottom": 34},
+      "verified": false,
+      "note": "UNVERIFIED - Edge maximised; target is the X (close) button at the top-right of the window (not the EDGE tab X). Consider capturing the app window non-maximised so the close button sits at the screen's top-right. This tests edge/corner bias."
+    },
+    {
+      "id": "G03",
+      "name": "taskbar items (bottom-left)",
+      "target": "the first pinned icon on the taskbar, at the bottom-left of the screen",
+      "category": "present",
+      "sizeClass": "small",
+      "screenshot": "_captures/shot-taskbar.png",
+      "box": null,
+      "boxEstimatedPx": {"left": 612, "top": 892, "right": 644, "bottom": 924},
+      "verified": false,
+      "note": "UNVERIFIED - on this laptop the taskbar icons are centred, so no app icon is IN the screen's bottom-left corner. If G03 means the visual bottom-left corner of the screen, capture a non-maximised window parked at the bottom-left, or an app with a sidebar/gear. Strongest substitution: capture Cursor fullscreen with its activity bar on the left - its bottom-left Manage gear is then a real bottom-left element. If so, reassign the 'Settings gear' notation to that and rename G05 to 'the Edge toolbar ellipsis'/'App gear' accordingly."
+    },
+    {
+      "id": "G04",
+      "name": "system clock (bottom-right)",
+      "target": "the system clock (time and date) in the bottom-right corner",
+      "category": "present",
+      "sizeClass": "small",
+      "screenshot": "_captures/shot-taskbar.png",
+      "box": null,
+      "boxEstimatedPx": {"left": 1780, "top": 1178, "right": 1916, "bottom": 1198},
+      "verified": false,
+      "note": "UNVERIFIED - the clock is 2 text lines (time + date). Tight box = both text lines only, no surrounding padding. Multi-line box OK."
+    },
+    {
+      "id": "G05",
+      "name": "Settings gear",
+      "target": "the Settings / Manage gear icon",
+      "category": "present",
+      "sizeClass": "tiny",
+      "screenshot": null,
+      "box": null,
+      "verified": false,
+      "note": "MISSING capture. Recommended source: Cursor fullscreen -> activity bar (left rail), Manage gear (lucide 'gear' / Settings) at the BOTTOM of the rail. Capture with cursor steady on something neutral. Confirm whether 'Settings gear' should be Cursor's gear or the Oceanic app's pet-panel gear."
+    },
+    {
+      "id": "G06",
+      "name": "tiny back arrow",
+      "target": "the back (previous page) arrow in the toolbar",
+      "category": "present",
+      "sizeClass": "tiny",
+      "screenshot": "_captures/shot-edge.png",
+      "box": null,
+      "boxEstimatedPx": {"left": 82, "top": 68, "right": 108, "bottom": 90},
+      "verified": false,
+      "note": "UNVERIFIED - the back arrow in Edge sits near the top-left of the window, just to the right of the address bar's left buttons. Note this overlaps the G02 area though lower and a different element. Should be a clearly light-coloured arrow distinct from top-right close."
+    },
+    {
+      "id": "G07",
+      "name": "tab title",
+      "target": "the title text of the active browser tab",
+      "category": "present",
+      "sizeClass": "small",
+      "screenshot": "_captures/shot-edge.png",
+      "box": null,
+      "boxEstimatedPx": {"left": 115, "top": 38, "right": 418, "bottom": 64},
+      "verified": false,
+      "note": "UNVERIFIED (best of the lot to do at this window layout) - tighten to the text run of the active tab, not the full tab strip. If Edge uses vertical tabs here, the layout differs and these x-coords are wrong."
+    },
+    {
+      "id": "G08",
+      "name": "Search box",
+      "target": "the search / address bar (the long rounded text field)",
+      "category": "present",
+      "sizeClass": "small",
+      "screenshot": "_captures/shot-edge.png",
+      "box": null,
+      "boxEstimatedPx": {"left": 215, "top": 70, "right": 845, "bottom": 112},
+      "verified": false,
+      "note": "UNVERIFIED - the omnibox. Pick a concrete wide box tight to the rounded field (border to border incl. leading magnifier). Large-ish small class; tests search-box grounding."
+    },
+    {
+      "id": "G09",
+      "name": "Save button",
+      "target": "the button labelled 'Save'",
+      "category": "present",
+      "sizeClass": "small",
+      "screenshot": null,
+      "box": null,
+      "verified": false,
+      "note": "Needs a 'Save As' dialog from Notepad (Ctrl+S on a new document) or Explorer's 'Save' action. Recommended: Notepad -> New -> Save button in the Save As dialog. Capture the dialog with the Save button clearly in view. The matching distractor G10 should be the Cancel button of the SAME dialog, so both must be in one screenshot."
+    },
+    {
+      "id": "G10",
+      "name": "Cancel button (distractor next to Save)",
+      "target": "the button labelled 'Cancel' (the distractor next to Save)",
+      "category": "present",
+      "sizeClass": "small",
+      "screenshot": null,
+      "box": null,
+      "verified": false,
+      "note": "Same Save As dialog screenshot as G09, second button. Box the Cancel button only. If the screenshot is shared between G09/G10, put both boxes in the same PNG with their respective ids."
+    },
+    {
+      "id": "G11",
+      "name": "cluttered cat photo",
+      "target": "the cat's head in a cluttered scene",
+      "category": "present",
+      "sizeClass": "tiny",
+      "screenshot": "_captures/shot-edge.png",
+      "box": null,
+      "boxEstimatedPx": {"left": 0, "top": 0, "right": 0, "bottom": 0},
+      "verified": false,
+      "note": "PLACEHOLDER/UNUSED - shot-edge is a Valorant game frame, not a cluttered cat photo. Re-capture: Edge with the cat image open (file:///.../vision-cat-1280.jpg) plus ≥3 other windows, all visible (clutter). Box = cat head measured in the 1920x1200 capture (displayed at the app's scale). This is the case where the earlier baseline (vision-sketch-cat) showed 4B/9B missing; keep measurement comparable."
+    },
+    {
+      "id": "G12",
+      "name": "red folder",
+      "target": "the RED folder icon (not a yellow one)",
+      "category": "present",
+      "sizeClass": "small",
+      "screenshot": "_captures/shot-clean-desktop.png",
+      "box": null,
+      "verified": false,
+      "note": "UNVERIFIED source - the only red icons I spotted on the clean desktop are 'UR.DRIVER' (red rounded square) and possibly tool icons. No red *folder* is reliably present. Options: (a) create a new desktop folder and change its icon to a red one via Properties->Customize->Change Icon (shell32.dll list); window 11 may or may not ship a red folder - if none, imageres.dll is the fallback. Or (b) use a real red-folder source such as WinSCP's remote File browser, or an app that renders a clearly red folder (Obsidian 'attachments' folder, EA app, Epic launcher). Recommended: (a), keep the screenshot, then DELETE the temp folder after capture (the PNG preserves the fixture)."
+    },
+    {
+      "id": "G13",
+      "name": "IDE Run button",
+      "target": "the 'Run' (triangular play) button in the IDE",
+      "category": "present",
+      "sizeClass": "tiny",
+      "screenshot": null,
+      "box": null,
+      "verified": false,
+      "note": "MISSING capture. Recommended source: open a reproducible file in the editor and target the Run-and-Debug control."
+    },
+    {
+      "id": "G14",
+      "name": "IDE sidebar Search",
+      "target": "the Search (magnifier) icon in the IDE activity bar",
+      "category": "present",
+      "sizeClass": "tiny",
+      "screenshot": null,
+      "box": null,
+      "verified": false,
+      "note": "MISSING capture. Recommended source: same Cursor launch; activity bar top item is the Search icon. Make sure only that icon is highlighted/checked so it is visually distinct on the clean activity bar. Also note: if Cursor horizontal title-bar search (Ctrl+M? no) is used instead, the box differs."
+    },
+    {
+      "id": "G15",
+      "name": "large cat",
+      "target": "the cat's full face (large object)",
+      "category": "present",
+      "sizeClass": "large",
+      "screenshot": null,
+      "box": null,
+      "verified": false,
+      "note": "MISSING capture. Recommended source: Edge in fullscreen (F11) on file:///.../vision-cat-1280.jpg, or the Windows 'Photos' app opened on the cat image. Target box = the cat's face viewport region when the image fills the display as much as possible. The natural object is ~1280x783; box as the face triangle only (tight, not the whole image)."
+    },
+    {
+      "id": "G16",
+      "name": "large window on the left",
+      "target": "the window (or its content area) occupying the left half of the screen",
+      "category": "present",
+      "sizeClass": "large",
+      "screenshot": null,
+      "box": null,
+      "verified": false,
+      "note": "MISSING capture. Easiest: bring a window to non-maximised state, move it to the left half (e.g., Win+Left snap), capture. Target the window's frame/content as a tight rectangle; the glass 'shadow' border should be excluded."
+    },
+    {
+      "id": "G17",
+      "name": "game character",
+      "target": "a specific game character (one in-world character, not a portrait or HUD icon)",
+      "category": "present",
+      "sizeClass": "small",
+      "screenshot": "_captures/shot-edge.png",
+      "box": null,
+      "boxEstimatedPx": {"left": 1700, "top": 410, "right": 1860, "bottom": 560},
+      "verified": false,
+      "note": "UNVERIFIED - shot-edge is a live Valorant defender side spawn. The teammate/enemy silhouettes at the right of the screen are candidate 'characters'. Pick ONE unambiguous silhouette (not a HUD portrait). If Valorant is the chosen game, capture in a denser/more visually busy moment (e.g., a crowded angle) and make sure the target is the only cyan-blue figure. Risk: Valorant captured during passive play shows mostly UI; a busier frame may be better. Alternatively use BloonsTD6 or Terraria (lighter 2D games, clearer sprites) to get a clean sprite; BloonsTD6 is installed at C:/Program Files (x86)/Steam/steamapps/common/BloonsTD6."
+    },
+    {
+      "id": "G18",
+      "name": "thin health bar",
+      "target": "a thin horizontal health bar (low aspect ratio, small height)",
+      "category": "present",
+      "sizeClass": "tiny",
+      "screenshot": "_captures/shot-edge.png",
+      "box": null,
+      "boxEstimatedPx": {"left": 150, "top": 1170, "right": 215, "bottom": 1187},
+      "verified": false,
+      "note": "UNVERIFIED - Valorant's HP is shown as a NUMBER ('100') at the bottom-left, not as a bar. The thin bars in this screenshot are: (a) the '100' number's underline? no; (b) the segmented ability-charge meter under the two left ability icons (~x 754-1234, y 960-1017 in original coords, multiple small segments). A more honest 'thin health bar' source: BloonsTD6 (in-game the 'lives' is a number), Terraria (HP = hearts bar, not thin), Risk of Rain 2 (thin HP bar under the survivor). Recommended: Risk of Rain 2 (in Steam library, installed) - its HP bar under the character is the cleanest thin-bar case. Launch note: RoR2 needs ~30-60s to load its menu; capture the in-game HUD."
+    },
+    {
+      "id": "G19",
+      "name": "absent elephant",
+      "target": "the elephant (which is NOT on this screen)",
+      "category": "absent",
+      "sizeClass": "n/a",
+      "screenshot": "_captures/shot-clean-desktop.png",
+      "box": null,
+      "verified": true,
+      "note": "FROZEN-OK: request a target that is definitely absent ('the elephant'). For scoring, any draw output is a false_draw, and a refusal ('I cannot see your screen right now...' / any abstain) is correct. This tests hallucination suppression. Keep the screen visually busy enough that it is NOT trivially empty (use the cluttered desktop or the Edge app screen), so the model has tempting false anchors."
+    },
+    {
+      "id": "G20",
+      "name": "absent printer icon",
+      "target": "the printer icon (which is NOT on this screen)",
+      "category": "absent",
+      "sizeClass": "n/a",
+      "screenshot": "_captures/shot-edge.png",
+      "box": null,
+      "verified": true,
+      "note": "FROZEN-OK: a Valorant (or other game) screen contains no printer icon - it exercises the 'no, absent' branch against a busy non-desktop background. Complement of G19 with a different background to avoid screen-type confounds."
+    }
+  ]
+}

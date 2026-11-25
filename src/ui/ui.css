@@ -1,0 +1,424 @@
+﻿/*
+ * React shell additions. The design tokens and every visual rule the
+ * vanilla UI had are carried over verbatim in design/tokens.css and the
+ * linked presentation/*.css stylesheets.
+ * This file imports the rules the legacy injected as its own STYLE block,
+ * and holds only what has no home there.
+ */
+@import './design/port-extra.css';
+@import './design/qol.css';
+@import './setup/setup.css';
+
+#root { position: fixed; inset: 0; }
+#root > .oc-root { position: absolute; inset: 0; overflow: hidden; }
+#ramo-stage-overlay-v180 { position: fixed !important; inset: 0; }
+#ramo-stage-overlay-v180 > * { pointer-events: auto; }
+
+#root { position: fixed; inset: 0; }
+#root > .oc-root { position: absolute; inset: 0; overflow: hidden; }
+#ramo-stage-overlay-v180 { position: fixed !important; inset: 0; }
+#ramo-stage-overlay-v180 > * { pointer-events: auto; }
+
+/* The composer pin (ported from _styleComposer). */
+#ramo-composer-v180 {
+  position: absolute; bottom: 44px; min-height: 64px; height: auto;
+  display: flex; align-items: center; gap: 7px; padding: 6px 9px;
+  border: 1px solid var(--oc-rule, #3e4545); border-radius: 14px;
+  background: var(--oc-paper, #282b2d); box-shadow: 0 6px 22px rgba(0,0,0,.16);
+  z-index: 2147483000; pointer-events: auto; box-sizing: border-box;
+}
+#ramo-workspace-pane-v180.page-mode ~ #ramo-composer-v180 { display: none; }
+/* The attached-text chip floats above the composer in the same slot the
+   scope chips use; lift the chips out of the way when one is attached. */
+#ramo-composer-v180:has(.oc-attached-text) .oc-scope-chips { bottom: calc(100% + 64px) !important; }
+/* The attach/paste notice floats below the composer (like the legacy
+   status note) instead of squeezing the text input. */
+#ramo-composer-v180 .oc-image-notice {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+  text-align: center; pointer-events: none; z-index: 2147483100;
+  font: 500 11.5px/1.5 "Segoe UI", system-ui, sans-serif;
+}
+
+#ramo-workspace-pane-v180 {
+  position: absolute; top: 12px; bottom: calc(var(--oc-composer-space, 140px) + var(--oc-toast-space, 0px)); box-sizing: border-box;
+  display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--oc-rule, #393e41);
+  border-radius: 14px; background: var(--oc-bg); z-index: 2147482500;
+}
+#ramo-workspace-content-v180 { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; overflow: hidden; }
+#ramo-workspace-pane-v180 .ramo-chat-scroll { flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; }
+.oc-response-body { overflow-wrap: anywhere; }
+#ramo-workspace-pane-v180.page-mode { background: var(--oc-bg) !important; }
+
+/* The right rail (base rules from the legacy STYLE block). */
+
+.oc-attached-text { display: flex; align-items: center; gap: 8px; margin: 6px 4px 0; padding: 6px 10px; border: 1px solid var(--oc-rule, #3e4545); border-radius: 9px; color: var(--oc-soft, #d1d7d9); background: var(--oc-field, #313538); max-width: 100%; }
+.oc-attached-text span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.oc-attached-text button { border: 0; background: transparent; color: var(--oc-muted, #a0a8a5); cursor: pointer; font-size: 14px; }
+
+/* Page scaffolding (Research / Files / Archive / System). */
+.oc-page-scroll { padding: 18px clamp(10px, 2vw, 30px) 24px; }
+.oc-page { max-width: 880px; }
+.oc-page-title { margin: 0 0 6px; font: 600 24px/1.3 "Segoe UI", system-ui, sans-serif; color: var(--oc-text, #eef0ef); }
+.oc-page-subtitle { margin: 0 0 14px; color: var(--oc-muted, #a0a8a5); font: 400 13px/1.5 "Segoe UI", system-ui, sans-serif; }
+.oc-page-h2 { margin: 20px 0 10px; font: 600 12px/1.3 "Segoe UI", system-ui, sans-serif; letter-spacing: .8px; text-transform: uppercase; color: var(--oc-muted, #a0a8a5); }
+.oc-page-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 12px 0; }
+.oc-page-input, .oc-page-field input, .oc-page-field select { background: var(--oc-field, #313538); border: 1px solid var(--oc-rule, #3e4545); color: var(--oc-text, #eef0ef); border-radius: 9px; padding: 9px 12px; font: 400 13px "Segoe UI", system-ui, sans-serif; }
+.oc-page-input { flex: 1; min-width: 200px; }
+.oc-page-editor { width: 100%; box-sizing: border-box; background: var(--oc-field, #313538); border: 1px solid var(--oc-rule, #3e4545); border-radius: 10px; color: var(--oc-text, #eef0ef); padding: 12px; font: 400 13px/1.55 "Segoe UI", system-ui, sans-serif; resize: vertical; }
+.oc-page-field { display: flex; flex-direction: column; gap: 6px; font: 550 12px "Segoe UI", system-ui, sans-serif; color: var(--oc-soft, #d1d7d9); margin: 10px 0; }
+.oc-page-note { color: var(--oc-muted, #a0a8a5); font: 400 12.5px/1.55 "Segoe UI", system-ui, sans-serif; margin: 10px 0; max-width: 640px; }
+.oc-page-note-inline { color: var(--oc-muted, #a0a8a5); font: 400 12px "Segoe UI", system-ui, sans-serif; }
+.oc-shell-button { border: 1px solid var(--oc-rule, #3e4545); background: var(--oc-surface, #303437); color: var(--oc-text, #eef0ef); border-radius: 9px; padding: 8px 14px; cursor: pointer; font: 500 12.5px "Segoe UI", system-ui, sans-serif; }
+.oc-shell-button:hover { border-color: var(--oc-accent, #a0c4b0); }
+.oc-shell-button-quiet { border: 0; background: transparent; color: var(--oc-soft, #d1d7d9); text-decoration: underline; cursor: pointer; padding: 4px 6px; font: 400 12.5px "Segoe UI", system-ui, sans-serif; }
+.oc-tree-list { display: flex; flex-direction: column; gap: 2px; margin-top: 14px; }
+.oc-tree-row { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto auto; align-items: center; gap: 8px; padding: 6px 8px; border: 1px solid transparent; border-radius: 8px; font: 400 12.5px/1.4 "Segoe UI", system-ui, sans-serif; color: var(--oc-soft, #d1d7d9); }
+.oc-tree-row:hover { background: var(--oc-surface, #303437); border-color: var(--oc-rule, #3e4545); }
+.oc-tree-kind { color: var(--oc-muted, #a0a8a5); font: 600 10px/1.3 "Segoe UI", system-ui, sans-serif; letter-spacing: .5px; text-transform: uppercase; overflow: hidden; text-overflow: ellipsis; }
+.oc-tree-user { color: #e8c98a; }
+.oc-tree-assistant { color: var(--oc-accent, #a0c4b0); }
+.oc-tree-title { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.oc-chart-block { margin: 12px 0; max-width: 100%; overflow: hidden; }
+.oc-chart-svg { display: block; width: 100%; max-width: 640px; height: auto; }
+.oc-chart-bg { fill: var(--oc-field, #313538); stroke: var(--oc-rule, #3e4545); }
+.oc-chart-title { fill: var(--oc-text, #eef0ef); font: 600 15px "Segoe UI", system-ui, sans-serif; }
+.oc-chart-tick, .oc-chart-legend, .oc-chart-label { fill: var(--oc-muted, #a0a8a5); font: 11px "Segoe UI", system-ui, sans-serif; }
+.oc-chart-axis { stroke: var(--oc-rule, #3e4545); stroke-width: 1; }
+.oc-chart-raw { margin: 0; padding: 10px 12px; border: 1px dashed var(--oc-rule, #3e4545); border-radius: 8px; color: var(--oc-soft, #d1d7d9); font: 12px/1.5 Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+.oc-stats-grid { display: flex; gap: 12px; flex-wrap: wrap; }
+.oc-stat { border: 1px solid var(--oc-rule, #3e4545); border-radius: 12px; padding: 12px 16px; min-width: 96px; }
+.oc-stat span { display: block; font: 600 20px/1.2 "Segoe UI", system-ui, sans-serif; color: var(--oc-text, #eef0ef); }
+.oc-stat label { color: var(--oc-muted, #a0a8a5); font: 500 10px/1.4 "Segoe UI", system-ui, sans-serif; text-transform: uppercase; letter-spacing: .5px; }
+.oc-exchange { border: 1px solid var(--oc-rule, #3e4545); border-radius: 10px; padding: 8px 12px; margin: 8px 0; }
+.oc-exchange summary { cursor: pointer; color: var(--oc-soft, #d1d7d9); }
+.oc-exchange-you { color: var(--oc-soft, #d1d7d9); font: 500 12.5px/1.5 "Segoe UI", system-ui, sans-serif; }
+.oc-exchange-assistant { color: var(--oc-muted, #a0a8a5); font: 400 12.5px/1.5 "Segoe UI", system-ui, sans-serif; }
+.oc-page-list-scroll { max-height: 46vh; overflow-y: auto; }
+.oc-page-list { list-style: none; padding: 0; }
+
+#ramo-composer-v180 { border-radius: 14px; }
+#ramo-command-input-v180 { flex: 1 1 90px; min-width: 45px; box-sizing: border-box; border: 0; border-radius: 8px; outline: none; background: transparent; color: var(--oc-text, #eef0ef); padding: 0 8px; font: 400 14px/1.4 "Segoe UI", system-ui, sans-serif; caret-color: var(--oc-accent, #a0c4b0); font-family: "Segoe UI", system-ui, sans-serif; }
+#ramo-composer-v180 .oc-scope-chips .oc-image-pick { height: 100%; }
+
+
+#ramo-stage-overlay-v180 #ramo-workspace-pane-v180 {
+  left: var(--oc-content-x, 460px) !important;
+  right: auto !important;
+  width: var(--oc-content-w, 916px) !important;
+}
+#ramo-stage-overlay-v180 #ramo-composer-v180 {
+  left: var(--oc-content-x, 460px) !important;
+  right: auto !important;
+  width: var(--oc-content-w, 916px) !important;
+}
+/* Geometry pins that remain absolute overrides are handled by the
+   unconditional pins above. */
+#ramo-stage-overlay-v180.oc-occupied-home #ramo-core-layer { display: none !important; }
+
+/* React shell silhouette. Absolute placement matches the legacy contract. */
+.oc-sidebar-heading { display: flex; align-items: center; gap: 10px; padding: 10px 12px; }
+.oc-nav-item[aria-current='page'] { background: var(--oc-hover, #393e41); }
+.oc-scope-chip[aria-haspopup], button.oc-scope-chip { cursor: pointer; }
+#ramo-composer-v180 .oc-command-chip { border-color: rgba(232,201,138,.35); color: #e8c98a; }
+#ramo-composer-v180 .oc-palette-choices { right: auto; left: 8px; width: min(420px, calc(100vw - 40px)); }
+#ramo-composer-v180 .oc-palette-choices .oc-model-pick span { max-width: 360px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.oc-composer-attachments { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+.oc-toast { position: absolute; left: 50%; bottom: 164px; transform: translateX(-50%); z-index: 2147483300;
+  padding: 9px 14px; border-radius: 12px; background: var(--oc-paper, #282b2d); border: 1px solid var(--oc-rule, #393e41);
+  color: var(--oc-soft, #d1d7d9); font: 500 12px/1.4 "Segoe UI", system-ui, sans-serif; box-shadow: 0 8px 28px rgba(0,0,0,.4); }
+
+/* The small occupied mark in the bar: static ASTER-language ring + core dot. */
+.oc-bar-mark { flex: none; display: inline-flex; width: 30px; height: 30px; align-items: center; justify-content: center; border-radius: 50%; filter: drop-shadow(0 0 5px rgba(160,196,176,.35)); }
+
+/* The pending user bubble content note. */
+.oc-pending-note { margin-top: 6px; color: rgba(15,25,18,.62); font: 500 10.5px/1.3 "Segoe UI", system-ui, sans-serif; }
+.ramo-w-pending { outline: 1px dashed rgba(235,235,225,.28); outline-offset: -1px; }
+
+/* The idle core breathes; pieces rotate through the physics loop. */
+@keyframes oc-core-breathe { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+#ramo-core-layer .core-halo, #ramo-core-layer .core-innerglow { animation: oc-core-breathe 4.6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  #ramo-core-layer .core-halo, #ramo-core-layer .core-innerglow { animation: none !important; }
+}
+
+/* Compact mode (window â‰¤ 900px): the sidebar is a drawer over the content. */
+#oc-mobile-nav { display: none; }
+@media (max-width: 900px) {
+  .oc-studio #oc-mobile-nav {
+    display: inline-flex; position: fixed; top: 10px; left: 10px; z-index: 2147483300;
+    width: 40px; height: 40px; align-items: center; justify-content: center;
+    border: 1px solid var(--oc-rule, #3e4545); border-radius: 10px; background: var(--oc-nav, #292a27);
+    color: var(--oc-soft, #d1d7d9); cursor: pointer;
+  }
+  .oc-studio #oc-mobile-backdrop { display: none; }
+  .oc-studio.sidebar-open #oc-mobile-backdrop { display: block; position: fixed; inset: 0; background: rgba(0,0,0,.62); z-index: 2147483200; }
+}
+.oc-empty-state { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; height: 100%; gap: 6px; text-align: center; padding-top: clamp(24px, 9vh, 130px); }
+.oc-empty-state h1 { font: 600 26px/1.3 "Segoe UI", system-ui, sans-serif; color: var(--oc-text, #eef0ef); margin: 0; }
+.oc-empty-state p { color: var(--oc-muted, #a0a8a5); font: 400 13px/1.5 "Segoe UI", system-ui, sans-serif; margin: 0; max-width: 380px; }
+
+/* ---- System / Hardware cards (Jan pattern) --------------------------- */
+.oc-hw-section { margin: 18px 0 6px; }
+.oc-hw-section:first-child { margin-top: 2px; }
+.oc-hw-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin: 0 0 8px; font: 600 15px/1.3 "Segoe UI", system-ui, sans-serif; color: var(--oc-text, #eef0ef); letter-spacing: .1px; }
+.oc-hw-refresh { flex: none; display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--oc-rule, #3e4545);
+  background: transparent; color: var(--oc-soft, #d1d6d3); border-radius: 8px; padding: 5px 12px;
+  font: 500 11.5px "Segoe UI", system-ui, sans-serif; cursor: pointer; }
+.oc-hw-refresh:hover { border-color: var(--oc-accent, #a0c4b0); color: var(--oc-text); }
+.oc-hw-refresh:disabled { opacity: .5; cursor: default; }
+.oc-hw-card { border: 1px solid var(--oc-rule, #3e4545); border-radius: 13px;
+  background: var(--oc-paper, #282b2d); box-sizing: border-box; padding: 6px 16px; }
+.oc-hw-row { display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  padding: 11px 2px; border-bottom: 1px solid rgba(255,255,255,.045); }
+.oc-hw-row:last-child { border-bottom: 0; }
+.oc-hw-key { color: var(--oc-muted, #a0a8a5); font-size: 13px; white-space: nowrap; }
+.oc-hw-val { color: var(--oc-text, #eef0ef); font: 500 13px/1.4 "Segoe UI", system-ui, sans-serif;
+  text-align: right; overflow-wrap: anywhere; }
+.oc-hw-usage { display: flex; align-items: center; gap: 12px; flex: 1; justify-content: flex-end; }
+.oc-hw-bar { flex: 1; max-width: 380px; min-width: 90px; height: 6px; border-radius: 3px;
+  background: var(--oc-field, #313538); overflow: hidden; }
+.oc-hw-bar-fill { display: block; height: 100%; background: var(--oc-accent, #a0c4b0);
+  border-radius: 3px; transition: width .45s ease; min-width: 2px; }
+.oc-hw-usage-pct { width: 40px; text-align: right; color: var(--oc-soft, #d1d6d3);
+  font: 600 12.5px/1 "Segoe UI", system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+.oc-hw-gpu-card { border: 1px solid var(--oc-rule, #3e4545); border-radius: 13px;
+  background: var(--oc-paper, #282b2d); box-sizing: border-box; padding: 16px 18px 18px; margin-top: 12px; }
+.oc-hw-gpu-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.oc-hw-gpu-name { font: 600 15px/1.3 "Segoe UI", system-ui, sans-serif; letter-spacing: -.2px; color: var(--oc-text, #eef0ef); }
+.oc-hw-badge { flex: none; font: 700 9px/1 "Segoe UI", system-ui, sans-serif; letter-spacing: 1.1px;
+  padding: 5px 9px; border-radius: 5px; border: 1px solid; }
+.oc-hw-badge.cuda { color: #ff9159; border-color: rgba(255,145,89,.45); background: rgba(255,145,89,.08); }
+.oc-hw-vram-label { display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  margin: 14px 0 7px; }
+.oc-hw-vram-label > span:first-child { font: 600 10.5px/1.4 "Segoe UI", system-ui, sans-serif;
+  letter-spacing: 1.3px; text-transform: uppercase; color: var(--oc-muted, #a0a8a5); }
+.oc-hw-vram-label > span:last-child { font: 500 12px/1.4 "Segoe UI", system-ui, sans-serif;
+  color: var(--oc-soft, #d1d6d3); font-variant-numeric: tabular-nums; }
+.oc-hw-bar.vram { max-width: none; height: 6px; }
+.oc-hw-bar.vram.empty .oc-hw-bar-fill { display: none; }
+.oc-hw-gpu-meta { display: flex; gap: 26px; flex-wrap: wrap; margin: 15px 0 0; padding: 0; }
+.oc-hw-gpu-meta div { display: flex; gap: 7px; align-items: baseline; }
+.oc-hw-gpu-meta dt { color: var(--oc-muted, #a0a8a5); font-size: 12px; margin: 0; }
+.oc-hw-gpu-meta dd { color: var(--oc-soft, #d1d6d3); font: 600 12px/1.4 "Segoe UI", system-ui, sans-serif;
+  margin: 0; font-variant-numeric: tabular-nums; }
+
+/* ---- Per-reply stats trigger + hover card (Cherry pattern) ------------ */
+.oc-reply-stats { position: relative; margin-left: auto; display: inline-flex; align-items: center; }
+.oc-reply-stats-btn { background: transparent; border: 0; border-radius: 6px;
+  color: var(--oc-muted, #a0a8a5); font: 500 11px/1 "Segoe UI", system-ui, sans-serif;
+  padding: 5px 7px; cursor: pointer; white-space: nowrap; }
+.oc-reply-stats-btn:hover { color: var(--oc-text, #eef0ef); background: var(--oc-surface, #303437); }
+.oc-reply-stats-card { position: fixed; z-index: 2147483647;
+  width: 430px; max-width: min(430px, calc(100vw - 40px));
+  background: var(--oc-paper, #282b2d); border: 1px solid var(--oc-rule, #3e4545);
+  border-radius: 15px; box-shadow: 0 18px 50px rgba(0,0,0,.42); padding: 16px 18px 12px;
+  text-align: left; font-family: "Segoe UI", system-ui, sans-serif; }
+.oc-rs-head { display: flex; gap: 11px; align-items: center; padding-bottom: 12px;
+  border-bottom: 1px solid var(--oc-rule, #3e4545); margin-bottom: 12px; }
+.oc-rs-badge { flex: none; width: 34px; height: 34px; border-radius: 9px;
+  display: grid; place-items: center; font: 700 15px/1 "Segoe UI", system-ui, sans-serif;
+  background: var(--oc-surface, #303437); color: var(--oc-accent, #a0c4b0); }
+.oc-rs-head-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.oc-rs-head-text strong { font-size: 13.5px; overflow-wrap: anywhere; }
+.oc-rs-head-text span { color: var(--oc-muted, #a0a8a5); font-size: 11px; }
+.oc-rs-primary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 11px; }
+.oc-rs-metric { background: var(--oc-field, #313538); border-radius: 10px; padding: 9px 11px; }
+.oc-rs-metric-label { display: block; color: var(--oc-muted, #a0a8a5); font-size: 10px;
+  letter-spacing: .4px; text-transform: uppercase; margin-bottom: 5px; }
+.oc-rs-metric strong { font-size: 14.5px; font-weight: 650; letter-spacing: -.2px; }
+.oc-rs-metric strong small { font-size: 10.5px; color: var(--oc-muted, #a0a8a5); font-weight: 500; }
+.oc-rs-secondary { display: flex; flex-direction: column; gap: 8px;
+  border-top: 1px solid var(--oc-rule, #3e4545); border-bottom: 1px solid var(--oc-rule, #3e4545);
+  padding: 11px 2px; margin: 0 0 4px; }
+.oc-rs-secondary > div { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+.oc-rs-secondary dt { color: var(--oc-muted, #a0a8a5); font-size: 11.5px; margin: 0; }
+.oc-rs-secondary dd { color: var(--oc-text, #eef0ef); font: 600 12px/1.3 "Segoe UI", system-ui, sans-serif;
+  margin: 0; font-variant-numeric: tabular-nums; }
+.oc-rs-more { width: 100%; display: flex; align-items: center; justify-content: center; gap: 5px;
+  background: transparent; border: 0; color: var(--oc-muted, #a0a8a5);
+  font: 600 11px/1 "Segoe UI", system-ui, sans-serif; padding: 9px 4px 7px; cursor: pointer; }
+.oc-rs-more:hover { color: var(--oc-text, #eef0ef); }
+.oc-rs-breakdown h3 { font: 600 11px/1 "Segoe UI", system-ui, sans-serif; letter-spacing: .9px;
+  text-transform: uppercase; color: var(--oc-muted, #a0a8a5); margin: 4px 2px 9px; }
+.oc-rs-lane { display: flex; align-items: center; gap: 12px; margin: 7px 0; }
+.oc-rs-lane-label { width: 44px; flex: none; color: var(--oc-muted, #a0a8a5); font-size: 11px; }
+.oc-rs-lane-value { width: 38px; flex: none; text-align: right; color: var(--oc-muted, #a0a8a5);
+  font-size: 11px; font-variant-numeric: tabular-nums; }
+.oc-rs-lane-track { flex: 1; height: 6px; background: var(--oc-field, #313538); border-radius: 3px; overflow: hidden; }
+.oc-rs-lane-fill { display: block; height: 100%; border-radius: 3px; }
+.oc-rs-lane-fill.model { background: var(--oc-accent, #a0c4b0); }
+.oc-rs-lane-fill.tool { background: #d6b26b; }
+.oc-rs-lane-fill.other { background: rgba(255,255,255,.28); }
+.oc-rs-empty { color: var(--oc-muted, #a0a8a5); font-size: 11.5px; margin: 6px 2px 2px; }
+
+/* ---- Cherry-style process group (thinking + tool steps) -------------- */
+.oc-process { border: 1px solid var(--oc-rule, #3e4545); border-radius: 12px;
+  margin: 4px 0 12px; background: var(--oc-field, #2c3032); overflow: hidden; }
+.oc-process-head { display: flex; align-items: center; gap: 9px; width: 100%;
+  padding: 8px 11px; background: transparent; border: 0; cursor: pointer;
+  color: var(--oc-soft, #d1d6d3); font: 550 12px/1 "Segoe UI", system-ui, sans-serif;
+  text-align: left; }
+.oc-process-head:hover { background: var(--oc-surface, #303437); }
+.oc-process-status { display: inline-flex; width: 15px; color: var(--oc-accent, #a0c4b0); }
+.oc-process.stopped .oc-process-status { color: #d9a24a; }
+.oc-process-title { letter-spacing: .1px; }
+.oc-process-meta { color: var(--oc-muted, #a0a8a5); font-size: 11px; }
+.oc-process-chevron { margin-left: auto; display: inline-flex; color: var(--oc-muted, #a0a8a5); transition: transform .18s ease; }
+.oc-process-body { padding: 2px 12px 10px; border-top: 1px solid var(--oc-rule, #3e4545); }
+.oc-process-empty { color: var(--oc-muted, #a0a8a5); font-size: 11px; margin: 10px 0 4px; }
+.oc-process-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #e46f64;
+  display: inline-block; animation: oc-process-pulse 1.1s ease-in-out infinite alternate; }
+@keyframes oc-process-pulse { from { opacity: .45; transform: scale(.85); } to { opacity: 1; transform: scale(1.15); } }
+.oc-call-line { display: flex; align-items: baseline; gap: 7px; padding: 7px 2px 6px;
+  color: var(--oc-soft, #d1d6d3); border-bottom: 1px solid rgba(255,255,255,.04); }
+.oc-call-model { font: 600 12px/1.3 "Segoe UI", system-ui, sans-serif; }
+.oc-call-meta { color: var(--oc-muted, #a0a8a5); font-size: 11px; }
+.oc-think { border-bottom: 1px solid rgba(255,255,255,.04); }
+.oc-think-head { display: flex; align-items: center; gap: 9px; width: 100%;
+  background: transparent; border: 0; padding: 7px 2px; cursor: pointer;
+  color: var(--oc-soft, #d1d6d3); font: 500 12px/1 "Segoe UI", system-ui, sans-serif; text-align: left; }
+.oc-think-dot { width: 9px; height: 9px; border-radius: 50%; flex: none;
+  border: 1.5px solid var(--oc-muted, #a0a8a5); }
+.oc-think-label { color: var(--oc-text, #eef0ef); }
+.oc-think-rate { margin-left: auto; color: var(--oc-accent, #a0c4b0); font-size: 10.5px; font-variant-numeric: tabular-nums; }
+.oc-think-chevron { color: var(--oc-muted, #a0a8a5); display: inline-flex; transition: transform .18s ease; }
+.oc-think-body { margin: 0 0 9px 18px; padding: 9px 12px; border-left: 2px solid var(--oc-rule, #3e4545);
+  color: var(--oc-soft, #d1d6d3); font-size: 12px; line-height: 1.55; overflow-wrap: anywhere; }
+.oc-think-body p { margin: 0 0 6px; }
+.oc-think-body p:last-child { margin-bottom: 0; }
+.oc-step { display: flex; gap: 10px; align-items: flex-start; padding: 6px 2px;
+  border-bottom: 1px solid rgba(255,255,255,.04); }
+.oc-step:last-child { border-bottom: 0; }
+.oc-step-icon { display: inline-flex; color: var(--oc-muted, #a0a8a5); margin-top: 2px; flex: none; }
+.oc-step-body { min-width: 0; }
+.oc-step-label { color: var(--oc-soft, #d1d6d3); font-size: 12.5px; line-height: 1.45; overflow-wrap: anywhere; }
+.oc-step-why { color: var(--oc-muted, #a0a8a5); font-size: 11px; line-height: 1.45; margin-top: 2px; overflow-wrap: anywhere; }
+.oc-step-sources { margin: 6px 0 2px; padding: 0 0 0 16px; font-size: 11.5px; }
+.oc-step-sources li { margin: 2px 0; }
+.oc-step-sources a { color: var(--oc-accent, #a0c4b0); text-decoration: none; }
+.oc-step-sources a:hover { text-decoration: underline; }
+
+/* ---- File artifact cards (Cherry report-artifacts pattern) ------------ */
+.oc-file-cards { display: flex; flex-direction: column; gap: 8px; margin: 10px 0 4px; }
+.oc-file-card { display: flex; align-items: center; gap: 0; max-width: 560px;
+  border: 1px solid var(--oc-rule, #3e4545); border-radius: 12px;
+  background: var(--oc-field, #313538); overflow: hidden; }
+.oc-file-card-body { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0;
+  border: 0; background: transparent; text-align: left; padding: 10px 12px; cursor: pointer; }
+.oc-file-card-body:hover { background: var(--oc-surface, #303437); }
+.oc-file-badge { flex: none; width: 38px; height: 38px; border-radius: 10px;
+  display: grid; place-items: center; font: 700 10px/1 "Segoe UI", system-ui, sans-serif;
+  letter-spacing: .5px; text-transform: lowercase; color: var(--oc-soft, #d1d6d3);
+  background: var(--oc-paper, #282b2d); border: 1px solid var(--oc-rule, #3e4545); }
+.oc-file-badge.code { color: #9fd6b2; border-color: rgba(159,214,178,.35); background: rgba(159,214,178,.07); }
+.oc-file-badge.web { color: #e6b477; border-color: rgba(230,180,119,.35); background: rgba(230,180,119,.07); }
+.oc-file-badge.meta { color: #8fb8e8; border-color: rgba(143,184,232,.35); background: rgba(143,184,232,.07); }
+.oc-file-badge.img { color: #c99ce8; border-color: rgba(201,156,232,.35); background: rgba(201,156,232,.07); }
+.oc-file-meta { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.oc-file-name { font: 600 13px/1.35 "Segoe UI", system-ui, sans-serif; color: var(--oc-text, #eef0ef);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.oc-file-dir { font-size: 11px/1.3 "Segoe UI", system-ui, sans-serif; color: var(--oc-muted, #a0a8a5);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.oc-file-open { position: relative; flex: none; padding: 0 8px 0 0; }
+.oc-file-open-btn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--oc-rule, #3e4545);
+  background: var(--oc-surface, #303437); color: var(--oc-soft, #d1d6d3); border-radius: 9px;
+  font: 500 12px/1 "Segoe UI", system-ui, sans-serif; padding: 8px 10px; cursor: pointer; }
+.oc-file-open-btn:hover { border-color: var(--oc-accent, #a0c4b0); color: var(--oc-text, #eef0ef); }
+.oc-file-menu { position: absolute; bottom: calc(100% + 6px); right: 0; z-index: 2147483500; min-width: 198px;
+  background: var(--oc-paper, #282b2d); border: 1px solid var(--oc-rule, #3e4545);
+  border-radius: 11px; box-shadow: 0 12px 34px rgba(0,0,0,.38); padding: 5px; display: flex; flex-direction: column; }
+.oc-file-menu button { display: flex; align-items: center; gap: 9px; border: 0; border-radius: 8px;
+  background: transparent; color: var(--oc-soft, #d1d6d3); font: 500 12px/1 "Segoe UI", system-ui, sans-serif;
+  padding: 8px 10px; cursor: pointer; text-align: left; white-space: nowrap; }
+.oc-file-menu button:hover { background: var(--oc-surface, #303437); color: var(--oc-text, #eef0ef); }
+.oc-file-menu button svg { color: var(--oc-muted, #a0a8a5); }
+
+/* ---- Code blocks (AnythingLLM pattern, graphite-tinted hljs) --------- */
+.oc-code-block { margin: 12px 0; border: 1px solid var(--oc-rule, #3e4545);
+  border-radius: 12px; background: #1c1f1e; overflow: hidden; }
+.oc-code-head { display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; padding: 7px 14px; background: #242826;
+  border-bottom: 1px solid var(--oc-rule, #3e4545); }
+.oc-code-lang { color: var(--oc-muted, #a0a8a5); font: 500 11px/1 "Cascadia Code", Consolas, monospace;
+  letter-spacing: .6px; text-transform: lowercase; }
+.oc-code-copy { border: 0; border-radius: 6px; background: transparent;
+  color: var(--oc-soft, #d1d6d3); font: 500 11px/1 "Segoe UI", system-ui, sans-serif;
+  padding: 5px 9px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.oc-code-copy:hover { background: var(--oc-surface, #303437); }
+.oc-code-copy.is-copied { color: var(--oc-accent, #a0c4b0); }
+.oc-code-block pre { margin: 0; max-height: 420px; overflow: auto; padding: 13px 15px;
+  outline: none; }
+.oc-code-block code.hljs { background: transparent; font: 12.5px/1.6 "Cascadia Code", Consolas, monospace; }
+.hljs { color: #d7dbd4; }
+.hljs-comment, .hljs-quote { color: #79837a; font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-tag { color: #cf9fd6; }
+.hljs-string, .hljs-regexp, .hljs-addition, .hljs-attribute { color: #9fd6a3; }
+.hljs-number, .hljs-literal { color: #e6c877; }
+.hljs-title, .hljs-title.function_, .hljs-title.class_ { color: #8fd3e0; }
+.hljs-attr, .hljs-variable, .hljs-template-variable, .hljs-name, .hljs-section { color: #ffbd8f; }
+.hljs-built_in, .hljs-type { color: #82cfff; }
+.hljs-meta, .hljs-selector-attr, .hljs-selector-pseudo { color: #d6b26b; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 700; }
+.hljs-deletion { color: #ff9d8f; }
+.hljs-punctuation, .hljs-operator { color: #a9b4a4; }
+
+
+/* ---- Settings two-pane (Jan-style section tabs) ----------------------- */
+.oc-settings-layout { display: flex; gap: 18px; align-items: flex-start; min-height: 0; }
+.oc-settings-nav { flex: none; width: 148px; display: flex; flex-direction: column; gap: 3px;
+  border-right: 1px solid var(--oc-rule, #3e4545); padding-right: 12px; }
+.oc-settings-tab { display: flex; align-items: center; gap: 10px; width: 100%;
+  padding: 9px 11px; border: 0; border-radius: 9px; background: transparent;
+  color: var(--oc-soft, #d1d6d3); font: 500 13px/1 "Segoe UI", system-ui, sans-serif;
+  text-align: left; cursor: pointer; min-height: 36px; }
+.oc-settings-tab:hover { background: var(--oc-surface, #303437); color: var(--oc-text, #eef0ef); }
+.oc-settings-tab[aria-current="page"] { background: var(--oc-surface, #303437); color: var(--oc-text, #eef0ef);
+  box-shadow: inset 2.5px 0 0 var(--oc-accent, #a0c4b0); }
+.oc-settings-tab-icon { display: inline-flex; color: var(--oc-muted, #a0a8a5); }
+.oc-settings-tab[aria-current="page"] .oc-settings-tab-icon { color: var(--oc-accent, #a0c4b0); }
+.oc-settings-panel { flex: 1 1 auto; min-width: 0; }
+.oc-settings-panel .oc-page-h2:first-child, .oc-settings-panel > div > .oc-page-h2:first-child { margin-top: 4px; }
+.oc-settings-panel > div { max-width: 720px; }
+@media (max-width: 700px) {
+  .oc-settings-layout { flex-direction: column; gap: 10px; }
+  .oc-settings-nav { flex-direction: row; flex-wrap: wrap; width: 100%; border-right: 0; border-bottom: 1px solid var(--oc-rule, #3e4545); padding: 0 0 10px; }
+  .oc-settings-tab { width: auto; padding: 8px 11px; }
+  .oc-settings-tab[aria-current="page"] { box-shadow: inset 0 -2.5px 0 var(--oc-accent, #a0c4b0); }
+}
+
+/* ---- Settings toggles + rows (Cherry/Jan pattern) ------------------- */
+.oc-settings-row { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 13px 2px; border-bottom: 1px solid rgba(255,255,255,.05); }
+.oc-settings-row:last-child { border-bottom: 0; }
+.oc-settings-row-label { font: 600 13px/1.4 "Segoe UI", system-ui, sans-serif; color: var(--oc-text, #eef0ef); }
+.oc-settings-row-value { color: var(--oc-muted, #a0a8a5); font-size: 12px; margin-right: 12px; font-variant-numeric: tabular-nums; }
+.oc-settings-row-control { display: flex; align-items: center; flex: none; }
+.oc-toggle { position: relative; flex: none; width: 40px; height: 22px; padding: 0; border: 1px solid var(--oc-rule, #3e4545); border-radius: 12px; background: var(--oc-field, #313538); cursor: pointer; transition: background .18s ease, border-color .18s ease; }
+.oc-toggle-knob { position: absolute; top: 2px; left: 2px; width: 16px; height: 16px; border-radius: 50%; background: var(--oc-muted, #a0a8a5); transition: transform .18s ease, background .18s ease; }
+.oc-toggle[aria-checked="true"] { background: var(--oc-accent, #a0c4b0); border-color: var(--oc-accent, #a0c4b0); }
+.oc-toggle[aria-checked="true"] .oc-toggle-knob { transform: translateX(18px); background: var(--oc-bg, #1f2123); }
+.oc-shell-button--primary-action { border-color: var(--oc-accent, #a0c4b0) !important; }
+
+/* ---- Jan-style compact hardware cards --------------------------------- */
+.oc-hw-section { margin: 12px 0 4px; }
+.oc-hw-card { padding: 4px 14px; border-radius: 12px; }
+.oc-hw-row { padding: 8px 2px; }
+.oc-hw-heading { margin: 0 0 6px; font-size: 13px; }
+.oc-hw-gpu-card { padding: 11px 14px 12px; margin-top: 8px; }
+.oc-hw-vram-label { margin: 9px 0 5px; }
+.oc-hw-gpu-meta { margin: 9px 0 0; gap: 18px; }
+.oc-hw-refresh { padding: 4px 10px; font-size: 11px; }
+
+/* ---- Files tab inside settings ---------------------------------------- */
+.oc-files-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.oc-files-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.oc-files-saved { margin-top: 16px; }
+.oc-files-saved > summary { cursor: pointer; color: var(--oc-soft, #d1d6d3); font-size: 12px; padding: 6px 2px; }
+.oc-files-saved .oc-page-list { list-style: none; padding: 6px 0 0 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.oc-files-saved .oc-shell-button-quiet { padding: 4px 2px; font-size: 12px; }
+.oc-page-editor { width: 100%; box-sizing: border-box; background: var(--oc-field, #313538); color: var(--oc-text, #eef0ef); border: 1px solid var(--oc-rule, #3e4545); border-radius: 11px; padding: 12px; min-height: 220px; font: 13px/1.55 "Segoe UI", system-ui, sans-serif; resize: vertical; }
+
+/* file card path + type meta lines */
+.oc-file-path { display: block; font: 11px/1.3 "Cascadia Code", Consolas, monospace; color: var(--oc-muted, #a0a8a5); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.oc-file-type { display: block; font-size: 10.5px/1.3 "Segoe UI", system-ui, sans-serif; color: var(--oc-soft, #d1d6d3); }
